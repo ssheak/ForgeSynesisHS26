@@ -10,12 +10,24 @@ title : Pflichtenheft
 
 ### 1.1 Zweck
 
-Beschreibt den Zweck und den Leserkreis der Spezifikation.
+Dieses Pflichtenheft spezifiziert die Anforderungen der Erweiterung "Forge Synesis" für JabRef. 
+Es dient als Grundlage für die Entwicklung, Implementierung und Prüfung, sowie Abnahme der Software. 
+Zudem richtet sich dieses Dokument insbesondere an das Entwicklungsteam, 
+sowie den Betreuern des Software-Engineering-Projekts.   
 
 ### 1.2 Einsatzbereich und Ziele
-Gibt an, wo die Software eingesetzt werden soll und welche wesentlichen Funktionen es haben wird. Wo sinnvoll, sollte auch definiert werden, was die Software nicht leisten wird.
+Die Erweiterung richtet sich an JabRef-User und Studenten, die gleichzeitig ihre Dokumente, Scripts und Bibliografien verwalten und darin neues Wissen effektiv mit Gedächtnistraining aneignen möchten.
 
-Beschreibt die mit der Software verfolgten Ziele.
+Funktionen: 
+- [ ] Separates Window für Karteikartengenerierung
+- [ ] User kann Sprache, Anzahl Karten sowie Thema angeben
+- [ ] Karten können nach generierung einzeln bearbeitet werden
+- [ ] Karten können umgedreht werden, um Lösungen zu offenbaren 
+- [ ] Anzahl richtiger und falschen Antworten werden angezeigt
+
+Mögliche Erweiterungen: 
+- [ ] Punkte System für richtige Antworten
+- [ ] Meilensteine im Tausch für "XP"
 
 ### 1.3 Definitionen
 
