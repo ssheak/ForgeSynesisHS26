@@ -31,7 +31,15 @@ Mögliche Erweiterungen:
 
 ### 1.3 Definitionen
 
-Dokumentiert alle verwendeten Fachbegriffe und Abkürzungen. Alternativ können Sie auch ein separates Glossar nutzen.
+| Begriff      | Bedeutung                                                     |
+|--------------|---------------------------------------------------------------|
+| Synesis      | Griechisch für "Einsicht" oder "Sinn"                         |
+| Flashcard    | Karteikarte/ Lernkarte                                        |
+| XP           | Erfahrungspunkte                                              |
+| API          | Kommunikationsschnittstelle zwischen Programmen               |
+| Shuffle      | Mischen (von z.B Lernkarten)                                  |
+| Lernmaterial | Scripts, PDF, Notizen aus denen Karteikarten generiert werden |
+
 
 ### 1.4 Referenzierte Dokumente
 
