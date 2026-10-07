@@ -39,6 +39,7 @@ Mögliche Erweiterungen:
 | API          | Kommunikationsschnittstelle zwischen Programmen               |
 | Shuffle      | Mischen (von z.B Lernkarten)                                  |
 | Lernmaterial | Scripts, PDF, Notizen aus denen Karteikarten generiert werden |
+| Meilenstein  | Belohnungssystem mit Zwischenzielen                           |
 
 
 ### 1.4 Referenzierte Dokumente
@@ -49,7 +50,9 @@ Falls ein JabRef Issue bearbeitet wird, bitte diesen hier referenzieren und verl
 
 ### 1.5 Überblick
 
-Beschreibt, wie der Rest der Spezifikation aufgebaut ist, insbesondere, wie Kapitel 3 strukturiert ist.
+Kapitel 2 beschreibt die allgemeine Einbettung und die Rahmenbedingungen des Systems. 
+Kapitel 3 spezifiziert die funktionalen Anforderungen. 
+Kapitel 4 definiert die Kriterien zur Abnahme dieser Anforderungen. Die detaillierten Use Cases sind in Anhang A beschrieben.
 
 ## 2. Allgemeine Beschreibung
 
