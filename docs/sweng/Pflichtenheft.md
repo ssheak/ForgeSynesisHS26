@@ -97,7 +97,24 @@ Die wichtigsten Funktionen sind:
 - Erfassung des Lernfortschritts und Vergabe von XP
 ### 2.3 Benutzerprofile
 
-Die User sollten sich die wichtigsten JabRef funktionen kennen und sich orientieren können.
+Forge Synesis richtet sich Hauptsächlich an Studierende und Akademiker, die JabRef zur Verwaltung und Organisierung 
+wissenschaftlicher Texte und anderen Dokumenten verwenden. 
+Für die Nutzung von Forge Synesis sind keine besonderen technischen Kenntnisse erforderlich.
+Die Benutzer sollten jedoch über grundlegende Kenntnisse im Umgang mit JabRef sowie über ausreichende Englischkenntnisse verfügen.
+
+Es werden zwischen drei Benutzergruppen unterschieden:
+
+- **Anfänger**: Verfügen über geringe Erfahrung mit JabRef und benötigen gegenfalls Unterstützung bei grundlegenden Funktionen
+  wie beim Importieren und Gruppieren von Dokumenten. Die Bedienung von Forge Synesis sollte auch für diese Benutzer möglichst einfach
+  und ersichtlich sein.
+
+- **Fortgeschrittener Benutzer**: Beherrschen die wichtigsten Funktionen von JabRef und können Dokumente selbstständig importiere und organisieren.
+  Sie können Forge Synesis selbstständig öffnen und die Parameter für die Erstellung von Flashcards einstellen.
+
+- **Erfahrener Benutzer**: Verfügen über umfangreiche Kenntnisse in JabRef und können Dokumente schnell und selbstständig organisieren. 
+  Sie können Forge Synesis vollständig selbst bedienen und die Flashcards anschließend überprüfen und bearbeiten. 
+
+
 
 ### 2.4 Einschränkungen
 Dokumentiert Einschränkungen, die die Freiheit der Entwicklung reduzieren (Basis-Software, Ziel-Hardware, Gesetzliche Grundlagen, ...)
