@@ -16,7 +16,9 @@ Zudem richtet sich dieses Dokument insbesondere an das Entwicklungsteam,
 sowie den Betreuern des Software-Engineering-Projekts.   
 
 ### 1.2 Einsatzbereich und Ziele
-Die Erweiterung richtet sich an JabRef-User und Studenten, die gleichzeitig ihre Dokumente, Scripts und Bibliografien verwalten und darin neues Wissen effektiv mit Gedächtnistraining aneignen möchten.
+Die Erweiterung richtet sich an JabRef-User und Studenten, die gleichzeitig ihre Dokumente, Scripts und Bibliografien verwalten und darin neues Wissen effektiv mit Gedächtnistraining aneignen möchten. Das Hauptziel besteht darin, bereits in JabRef vorhandenes Lernmaterial
+in interaktive Lernkarten umzuwandeln und dadurch einen zusammenhängenden
+Workflow vom Lernmaterial bis zum Lernen bereitzustellen.
 
 Funktionen: 
 - [ ] Separates Window für Karteikartengenerierung
@@ -24,6 +26,7 @@ Funktionen:
 - [ ] Karten können nach generierung einzeln bearbeitet werden
 - [ ] Karten können umgedreht werden, um Lösungen zu offenbaren 
 - [ ] Anzahl richtiger und falschen Antworten werden angezeigt
+- [ ] Lernfortschritt anzeigen
 
 Mögliche Erweiterungen: 
 - [ ] Punkte System für richtige Antworten
