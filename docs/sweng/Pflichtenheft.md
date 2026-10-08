@@ -152,8 +152,13 @@ Die Funktionalen Anforderungen sollen mithilfe von Use-cases erhoben werden. Die
 Beschreiben Sie hier, wie die Anforderungen bei der Abnahme auf ihre Realisierung überprüft werden können.
 
 Definieren Sie hier mindestens ein Abnahmekriterium
-* /A10/ Abnahmekriterium 1
-* /A20/ Abnahmekriterium 2
+* /A10/ Lernkarten generieren: Der Benutzer wählt Lernmaterial aus und legt die Anzahl, Sprache, Schwierigkeit und das Thema fest. Forge Synesis erstellt die gewünschte Anzahl Lernkarten auf Grundlage des ausgewählten Materials und zeigt sie in JabRef an.
+*/A20/ Lernkarten prüfen: Jede Lernkarte enthält eine Frage und eine Antwort. Beide Felder sind ausgefüllt. Die Karten sind in der gewählten Sprache und passen zum gewählten Thema.
+*/A30/ Karten prüfen und speichern: Der Benutzer kann jede Karte vor dem Speichern lesen und bearbeiten. Gespeicherte Karten sind dem ausgewählten Lernmaterial zugeordnet und später auffindbar.
+*/A40/ Lernmodus verwenden: Der Benutzer sieht zuerst die Frage und kann danach die Antwort anzeigen. Anschließend kann er die Antwort als richtig oder falsch markieren. Danach zeigt das System die nächste Karte.
+*/A50/ Lernergebnis anzeigen: Nach der Lernsitzung zeigt das System die Anzahl richtiger und falscher Antworten an und aktualisiert den Lernfortschritt.
+*/A60/ Leere Sammlung behandeln: Wählt der Benutzer eine Sammlung ohne Lernkarten aus, zeigt das System eine klare Meldung an. Der Benutzer kann eine andere Sammlung auswählen. Der Lernfortschritt wird nicht verändert.
+*/A70/ Fehler der Gemini API behandeln: Ist die Gemini API nicht verfügbar oder liefert sie ein nicht verwendbares Ergebnis, zeigt das System eine verständliche Fehlermeldung an. Unvollständige Karten werden nicht gespeichert, und JabRef stürzt nicht ab.
 
 
 # Anhang
