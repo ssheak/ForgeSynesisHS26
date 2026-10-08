@@ -36,6 +36,7 @@ Mögliche Erweiterungen:
 
 | Begriff      | Bedeutung                                                     |
 |--------------|---------------------------------------------------------------|
+| Forge        | Schmiede oder etwas schmieden                                 |
 | Synesis      | Griechisch für "Einsicht" oder "Sinn"                         |
 | Flashcard    | Karteikarte/ Lernkarte                                        |
 | XP           | Erfahrungspunkte                                              |
@@ -61,15 +62,42 @@ Kapitel 4 definiert die Kriterien zur Abnahme dieser Anforderungen. Die detailli
 
 ### 2.1 Einbettung
 
-Beschreibt, wie das System in seine Umgebung eingebettet ist und wie die Software mit den umgebenden Komponenten und Systemen zusammenspielt. Dazu werden die Schnittstellen, Kommunikationsprotokolle etc. definiert.
+Forge Synesis wird als Erweiterung in die bestehende Anwendung JabRef integriert.
+JabRef stellt die vom Benutzer ausgewählten bibliografischen Einträge und die
+dazugehörigen Lernmaterialien bereit. Forge Synesis greift auf diese Daten zu
+und stellt sie dem Benutzer zur Auswahl für die Flashcard-Generierung bereit.
+
+Die Kommunikation zwischen Forge Synesis und der Gemini API erfolgt über eine
+API-Schnittstelle. Darüber werden die vom Benutzer ausgewählten
+Lernmaterialien sowie die festgelegten Generierungsparameter übermittelt.
+Zu diesen Parametern gehören unter anderem die Anzahl, Sprache und
+Schwierigkeit der zu generierenden Flashcards sowie das angegebene Thema.
+
+Die Gemini API verarbeitet diese Informationen und liefert die generierten
+Fragen und Antworten an Forge Synesis zurück. Forge Synesis verarbeitet die
+Antwort und stellt die daraus erzeugten Flashcards innerhalb von JabRef dar.
+
+Für die Kommunikation mit der Gemini API ist eine aktive Internetverbindung
+erforderlich.
 
 ### 2.2 Funktionen
 
-Skizziert die wichtigsten Funktionen
+Forge Synesis bietet dem Benutzer Funktionen zur Erstellung, Bearbeitung und
+Verwendung von AI-generierten Flashcards.
 
+Die wichtigsten Funktionen sind:
+
+- Auswahl von Lernmaterial aus JabRef
+- Festlegung der Generierungsparameter
+- Festlegung eines Themas
+- Generierung von Flashcards
+- Vorschau und Bearbeitung der generierten Flashcards
+- Verwendung der Flashcards im Study Mode
+- Organisation der Flashcards nach Fach bzw. Lernmaterial
+- Erfassung des Lernfortschritts und Vergabe von XP
 ### 2.3 Benutzerprofile
 
-Charakterisiert die Benutzergruppen und die Voraussetzungen die diese jeweils mitbringen (Ausbildung, Know-how, Sprache)
+Die User sollten sich die wichtigsten JabRef funktionen kennen und sich orientieren können.
 
 ### 2.4 Einschränkungen
 Dokumentiert Einschränkungen, die die Freiheit der Entwicklung reduzieren (Basis-Software, Ziel-Hardware, Gesetzliche Grundlagen, ...)
