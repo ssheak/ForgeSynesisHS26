@@ -138,14 +138,36 @@ An dieser Stelle können detaillierte Use-cases angegeben werden
 ![Diagram](../../slides/images/use-case.png)
 
 ### Use Case 1:
-* Name: *Name des Use-cases*
-* Akteure: *Akteur1, Akteur2, ...*
-* Vorbedingungen: *Was muss vor Beginn des Ablaufs gelten*
-* Standardablauf
-    * Schritt 1
-    * Schritt 2
-* Nachbedingungen Erfolg: *Was muss nach dem Ende des erfolgreichen Ablaufs gelten*
-* Nachbedingung Sonderfall: *Was gilt nach dem Ende, wenn der Ablauf fehlgeschlagen ist*
+* **Name:** Lernkarten aus Lernmaterial generieren
+* **Akteure:** Studierender / JabRef-Benutzer
+* **Vorbedingungen:**
+  * JabRef ist gestartet.
+  * Der Benutzer verfügt über Lernmaterial, das in JabRef ausgewählt
+    werden kann.
+  * Die Gemini API ist konfiguriert.
+  * Eine Netzwerkverbindung ist verfügbar.
+* **Standardablauf**
+  1. Der Benutzer öffnet Forge Synesis.
+  2. Der Benutzer wählt ein Lernmaterial aus.
+  3. Das System zeigt das ausgewählte Lernmaterial an.
+  4. Der Benutzer öffnet die Einstellungen zur Karteikartengenerierung.
+  5. Der Benutzer gibt die gewünschte Anzahl an Karten ein.
+  6. Der Benutzer startet die Generierung.
+  8. Das System übermittelt das Lernmaterial und die gewählten Parameter
+     an die Gemini API.
+  9. Die Gemini API generiert Fragen und Antworten.
+  10. Das System verarbeitet die API-Antwort.
+  11. Das System zeigt die generierten Lernkarten an.
+  12. Der Benutzer kann die Karten überprüfen und bearbeiten.
+
+* **Nachbedingungen Erfolg:**
+  * Die generierten Lernkarten werden dem ausgewählten Lernmaterial
+    zugeordnet.
+  * Die Karten können vom Benutzer bearbeitet und gespeichert werden.
+
+* **Nachbedingung Sonderfall:**
+  * Bei einem Fehler werden keine unvollständigen Karten gespeichert.
+  * Der Benutzer erhält eine verständliche Fehlermeldung.
 
 
 #### Sonderfall 1a: Ausnahme 1
