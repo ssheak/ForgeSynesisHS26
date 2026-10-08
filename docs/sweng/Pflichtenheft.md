@@ -134,15 +134,25 @@ sowie den Schnittstellen ab.
 
 ## 3. Einzelanforderungen
 
-Beschreibt die Anforderung i so genau, dass bei der Verwendung der Spezifikation (im Entwurf usw.) keine Rückfragen dazu notwendig sind.
+Beschreibt die Anforderung so genau, dass bei der Verwendung der Spezifikation (im Entwurf usw.) keine Rückfragen dazu notwendig sind.
 
 Identifizieren Sie jede Funktionale Anforderung mit einer Nummer, so dass diese Nachverfolgbar sind. Zusammengehörende Funktionale Anforderungen können durch geeignete Nummerierung angezeigt werden.
 
 Zur Spezifikation der Software sollen Sprachschablonen benutzt werden.
 
-* /F10/ Funktion 1 des Systems
-* /F11/ Weitere Detaillierung Funkion 1
-* /F20/ Funktion 2 des Systems
+* /F10/ Das System muss dem Benutzer ermöglichen bibliografische Dokumente aus JabRef für die Flashcard generierung auszuwählen.
+* /F11/ Das System muss die ausgewählten Quellen in einem **Vorschaufenster** anzeigen.
+
+
+* /F20/ Es müssen Felder für Parametereingabe geben.
+* /F21/ Die angebotenen Parameter sind Sprache (Deutsch oder English), Schwierigkeit (Leicht, Mittel oder Schwer) und Anzahl (5 bis 20)
+* /F22/ Die optionalen Parameter müssen dem Benutzer offen gezeigt werden.
+* /F23/ Die Parameter müssen durch einfache Regler konfigurierbar sein, sodass man diese schnell per Mausklick auswählen kann.
+* /F24/ Es muss ein Feld für die Eingabe eines bestimmten Themas geben. 
+
+
+* /F30/ Das System muss die ausgewählten Quellen, die konfigurierten Parameter sowie optional das Thema der Flashcards an Gemini AI übermitteln. 
+* /F31/ Ein Fehler seitens Gemini muss als Fehlermeldung an Forge Synesis weitergegeben werden und darf nicht zum Programmabsturz führen. 
 
 
 Die Funktionalen Anforderungen sollen mithilfe von Use-cases erhoben werden. Die Use-cases sollen in Anhang A detailliert beschrieben werden.
@@ -153,12 +163,12 @@ Beschreiben Sie hier, wie die Anforderungen bei der Abnahme auf ihre Realisierun
 
 Definieren Sie hier mindestens ein Abnahmekriterium
 * /A10/ Lernkarten generieren: Der Benutzer wählt Lernmaterial aus und legt die Anzahl, Sprache, Schwierigkeit und das Thema fest. Forge Synesis erstellt die gewünschte Anzahl Lernkarten auf Grundlage des ausgewählten Materials und zeigt sie in JabRef an.
-*/A20/ Lernkarten prüfen: Jede Lernkarte enthält eine Frage und eine Antwort. Beide Felder sind ausgefüllt. Die Karten sind in der gewählten Sprache und passen zum gewählten Thema.
-*/A30/ Karten prüfen und speichern: Der Benutzer kann jede Karte vor dem Speichern lesen und bearbeiten. Gespeicherte Karten sind dem ausgewählten Lernmaterial zugeordnet und später auffindbar.
-*/A40/ Lernmodus verwenden: Der Benutzer sieht zuerst die Frage und kann danach die Antwort anzeigen. Anschließend kann er die Antwort als richtig oder falsch markieren. Danach zeigt das System die nächste Karte.
-*/A50/ Lernergebnis anzeigen: Nach der Lernsitzung zeigt das System die Anzahl richtiger und falscher Antworten an und aktualisiert den Lernfortschritt.
-*/A60/ Leere Sammlung behandeln: Wählt der Benutzer eine Sammlung ohne Lernkarten aus, zeigt das System eine klare Meldung an. Der Benutzer kann eine andere Sammlung auswählen. Der Lernfortschritt wird nicht verändert.
-*/A70/ Fehler der Gemini API behandeln: Ist die Gemini API nicht verfügbar oder liefert sie ein nicht verwendbares Ergebnis, zeigt das System eine verständliche Fehlermeldung an. Unvollständige Karten werden nicht gespeichert, und JabRef stürzt nicht ab.
+* /A20/ Lernkarten prüfen: Jede Lernkarte enthält eine Frage und eine Antwort. Beide Felder sind ausgefüllt. Die Karten sind in der gewählten Sprache und passen zum gewählten Thema.
+* /A30/ Karten prüfen und speichern: Der Benutzer kann jede Karte vor dem Speichern lesen und bearbeiten. Gespeicherte Karten sind dem ausgewählten Lernmaterial zugeordnet und später auffindbar.
+* /A40/ Lernmodus verwenden: Der Benutzer sieht zuerst die Frage und kann danach die Antwort anzeigen. Anschließend kann er die Antwort als richtig oder falsch markieren. Danach zeigt das System die nächste Karte.
+* /A50/ Lernergebnis anzeigen: Nach der Lernsitzung zeigt das System die Anzahl richtiger und falscher Antworten an und aktualisiert den Lernfortschritt.
+* /A60/ Leere Sammlung behandeln: Wählt der Benutzer eine Sammlung ohne Lernkarten aus, zeigt das System eine klare Meldung an. Der Benutzer kann eine andere Sammlung auswählen. Der Lernfortschritt wird nicht verändert.
+* /A70/ Fehler der Gemini API behandeln: Ist die Gemini API nicht verfügbar oder liefert sie ein nicht verwendbares Ergebnis, zeigt das System eine verständliche Fehlermeldung an. Unvollständige Karten werden nicht gespeichert, und JabRef stürzt nicht ab.
 
 
 # Anhang
@@ -225,7 +235,7 @@ An dieser Stelle können detaillierte Use-cases angegeben werden
 * **Standardablauf**
   1. Der Benutzer öffnet den Lernmodus.
   2. Der Benutzer wählt eine Flashcards-Sammlung aus. 
-  3. Das System zeigt die erste Flashcardsfrage an.
+  3. Das System zeigt die erste Flashcard-Frage an.
   4. Der Benutzer deckt die Antwort auf und markiert sie als richtig oder falsch.
   5. Das System aktualisiert den Lernfortschritt und zeigt die nächste Flashcard an.
   6. Die Schritte 3–5 wiederholen sich, bis alle Flashcards durchgegangen sind.
