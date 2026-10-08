@@ -170,10 +170,14 @@ An dieser Stelle können detaillierte Use-cases angegeben werden
   * Der Benutzer erhält eine verständliche Fehlermeldung.
 
 
-#### Sonderfall 1a: Ausnahme 1
-* Ablauf Sonderfall 1a
-    * Schritt 1
-    * Schritt 2
+### Sonderfall 1a: Gemini API nicht erreichbar
+
+* **Ablauf Sonderfall 1a**
+  1. Der Benutzer startet die Generierung.
+  2. Das System versucht, die Gemini API zu erreichen.
+  3. Die API ist nicht erreichbar.
+  4. Das System bricht die Generierung kontrolliert ab.
+  5. Das System zeigt eine Fehlermeldung an.
 
 #### Sonderfall 1b: Ausnahme 2
 * Ablauf Sonderfall 1b
