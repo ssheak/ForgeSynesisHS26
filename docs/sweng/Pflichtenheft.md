@@ -1,7 +1,4 @@
----
-layout: default
-title : Pflichtenheft
----
+
 # Pflichtenheft
 #####  (Nach Lichter & Ludwig, Software Engineering: Grundlagen, Menschen, Prozesse, Techniken)
 
@@ -41,6 +38,7 @@ Mögliche Erweiterungen:
 | Flashcard    | Karteikarte/ Lernkarte                                        |
 | XP           | Erfahrungspunkte                                              |
 | API          | Kommunikationsschnittstelle zwischen Programmen               |
+| Gemini AI    | Gemini als Künstliche Intelligenz                             |
 | Shuffle      | Mischen (von z.B Lernkarten)                                  |
 | Lernmaterial | Scripts, PDF, Notizen aus denen Karteikarten generiert werden |
 | Meilenstein  | Belohnungssystem mit Zwischenzielen                           |
@@ -117,10 +115,21 @@ Es werden zwischen drei Benutzergruppen unterschieden:
 
 
 ### 2.4 Einschränkungen
-Dokumentiert Einschränkungen, die die Freiheit der Entwicklung reduzieren (Basis-Software, Ziel-Hardware, Gesetzliche Grundlagen, ...)
+
+Forge Synesis wird als Erweiterung der bestehenden Open-Source-Anwendung JabRef entwickelt. 
+Daher muss sich die Implementierung an der vorhandenen Architektur, den verwendeten Technologien und den Entwicklungskonventionen von JabRef orientieren. 
+Die Erweiterung muss mit der für das Projekt festgelegten JabRef-Version kompatibel sein und darf die bestehenden Funktionen der Anwendung nicht beeinträchtigen.
+
+Für die Generierung der Flashcards wird die externe Gemini API verwendet. 
+Die Funktionalität der KI-gestützten Generierung ist daher von der Verfügbarkeit dieses Dienstes sowie einer funktionierenden Internetverbindung abhängig. 
+Fehler bei der Kommunikation mit der Gemini API oder bei der Verarbeitung ihrer Antworten müssen abgefangen werden, sodass sie nicht zum Absturz von Forge Synesis oder JabRef führen. Stattdessen soll dem Benutzer eine verständliche Fehlermeldung angezeigt werden.
+
+Änderungen an den Schnittstellen oder an der verwendeten JabRef-Version müssen bei der Weiterentwicklung berücksichtigt werden, um die Kompatibilität der beteiligten Komponenten sicherzustellen.
 
 ### 2.5 Annahmen und Abhängigkeiten
-Nennt explizit die Annahmen und externen Voraussetzungen, von denen bei der Spezifikation ausgegangen wurde.
+Es wird davon ausgegangen, dass der Benutzer über JabRef auf die geeigneten Lernmaterialien zugreifen kann und für die Generierung der Flashcards 
+eine aktive Internetverbindung besteht. Darüber hinaus hängt die Implementierung und Betrieb von Forge Synesis von der aktuellen JabRef Version
+sowie den Schnittstellen ab.
 
 
 ## 3. Einzelanforderungen
