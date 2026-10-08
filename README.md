@@ -2,7 +2,7 @@
 
 ## Members
 
-- Jasra Mohamed Yousaf
+- Jasra Mohamed Yoosuf
 - Erind Shima
 - Shahriar Sheak
 - Bavan Sivaloganathan 
