@@ -203,16 +203,29 @@ An dieser Stelle können detaillierte Use-cases angegeben werden
 
 
 ### Use Case 2:
-* Name: *Name des Use-cases*
-* Akteure: *Akteur1, Akteur2, ...*
-* Vorbedingungen: *Was muss vor Beginn des Ablaufs gelten*
-* Standardablauf
-    * Schritt 1
-    * Schritt 2
-* Nachbedingungen Erfolg: *Was muss nach dem Ende des erfolgreichen Ablaufs gelten*
-* Nachbedingung Sonderfall: *Was gilt nach dem Ende, wenn der Ablauf fehlgeschlagen ist*
+* **Name:** *Study Flashcards*
+* **Akteure:** *Studierender / JabRef-Benutzer*
+* **Vorbedingungen:**
+  * JabRef läuft.
+  * Es gibt mindestens eine Flashcards-Sammlung.
+* **Standardablauf**
+  1. Der Benutzer öffnet den Lernmodus.
+  2. Der Benutzer wählt eine Flashcards-Sammlung aus. 
+  3. Das System zeigt die erste Flashcardsfrage an.
+  4. Der Benutzer deckt die Antwort auf und markiert sie als richtig oder falsch.
+  5. Das System aktualisiert den Lernfortschritt und zeigt die nächste Flashcard an.
+  6. Die Schritte 3–5 wiederholen sich, bis alle Flashcards durchgegangen sind.
+  7. Das System zeigt die Lernergebnisse an.
+* **Nachbedingungen Erfolg:** 
+  * Die Lernsitzung ist abgeschlossen.
+  * Der Lernfortschritt des Benutzers wurde aktualisiert.
+* **Nachbedingung Sonderfall:** 
+  * Keine Lernsitzung wurde abgeschlossen. 
+  * Der Fortschritt des Benutzers bleibt unverändert.
 
-#### Sonderfall 2a: Ausnahme 1
-* Ablauf Sonderfall 1a
-    * Schritt 1
-    * Schritt 2
+#### Sonderfall 2a: Leere Flashcards-Sammlung
+* Ablauf Sonderfall 2a
+    * Der Benutzer wählt eine leere Flashcards-Sammlung aus.
+    * Das System erkennt, dass keine Flashcard verfügbar sind.
+    * Das System zeigt eine informative Nachricht an.
+    * Der Benutzer kann eine andere Sammlung auswählen.
