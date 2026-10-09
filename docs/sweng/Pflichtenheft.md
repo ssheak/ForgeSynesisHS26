@@ -141,13 +141,12 @@ sowie den Schnittstellen ab.
 * /F10/ Der Benutzer muss ein oder mehrere Lernmaterialien aus JabRef auswählen können.
 * /F11/ Das System muss die ausgewählten Lernmaterialien vor der Generierung in Forge Synesis anzeigen.
 * /F12/ Forge Synesis muss sich in einem eigenen Fenster in JabRef öffnen lassen.
-* 
 #### Einstellungen für die Generierung
 * /F20/ Der Benutzer muss die Anzahl, Sprache und Schwierigkeit der Lernkarten festlegen können.
 * /F21/ Der Benutzer muss Deutsch oder Englisch und eine der Schwierigkeitsstufen Leicht, Mittel oder Schwer auswählen können. Die Anzahl der Karten muss zwischen 5 und 20 liegen.
 * /F22/ Der Benutzer muss ein Thema eingeben können. Die Angabe eines Themas ist freiwillig.
 * /F23/ Das System muss die ausgewählten Lernmaterialien und Einstellungen vor dem Start der Generierung anzeigen.
-* 
+  
 #### Generierung der Lernkarten
 * /F30/ Das System muss die ausgewählten Lernmaterialien und Einstellungen an die Gemini API senden.
 * /F31/ Wenn die Gemini API nicht erreichbar ist oder keine verwendbare Antwort liefert, muss das System eine verständliche Fehlermeldung anzeigen. JabRef darf dabei nicht abstürzen.
@@ -225,11 +224,6 @@ Prüfen, Bearbeiten und Speichern
   3. Die API ist nicht erreichbar.
   4. Das System bricht die Generierung kontrolliert ab.
   5. Das System zeigt eine Fehlermeldung an.
-
-#### Sonderfall 1b: Ausnahme 2
-* Ablauf Sonderfall 1b
-    * Schritt 1
-    * Schritt 2
 
 
 ### Use Case 2:
