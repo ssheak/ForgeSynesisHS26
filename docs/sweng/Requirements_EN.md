@@ -1,6 +1,6 @@
 # Requirements Specification
 ##### (Based on Lichter & Ludwig, *Software Engineering: Fundamentals, People, Processes, Techniques*)
-(Disclaimer: This version is based on the original “Pflichtenheft” file. Since it was conceived, in theory, as a literal translation created for the convenience of all team members, any errors should not be taken into account or attributed to the design or implementation of the project. Additionally, external translation and proofreading tools may have been used for certain passages.)
+(Disclaimer: this version is based on the original “Pflichtenheft” file. Since it was conceived, in theory, as a literal translation created for the convenience of all team members, any errors should not be taken into account or attributed to the design or implementation of the project. Additionally, external translation and proofreading tools may have been used for certain passages.)
 
 ## 1. Introduction
 
