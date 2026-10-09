@@ -1,12 +1,12 @@
 
-## Projektplan 
+# Projektplan 
 Der Projektplan dient als Orientierung für das Vorgehen und die zeitliche Planung des Projekts. 
 Er ist nicht verbindlich und kann im Verlauf der Entwicklung bei Bedarf angepasst werden. 
 Dabei ist zu berücksichtigen, dass einzelne Aufgaben möglicherweise anspruchsvoller sind als ursprünglich angenommen 
 und daher mehr Zeit und Ressourcen in Anspruch nehmen können.
 
 
-# Phasen: 
+### Phasen: 
 - 1: Anforderungen und technische Analyse
 - 2: Architektur und Projektgrundlagen
 - 3: Benutzeroberfläche
