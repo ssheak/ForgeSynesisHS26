@@ -134,21 +134,41 @@ sowie den Schnittstellen ab.
 
 
 ## 3. Einzelanforderungen
-* /F10/ Das System muss dem Benutzer ermöglichen bibliografische Dokumente aus JabRef für die Flashcard generierung auszuwählen.
-* /F11/ Das System muss die ausgewählten Quellen in einem **Vorschaufenster** anzeigen.
 
+### 3.1 Funktionale Anforderungen
 
-* /F20/ Es müssen Felder für Parametereingabe geben.
-* /F21/ Die angebotenen Parameter sind Sprache (Deutsch oder English), Schwierigkeit (Leicht, Mittel oder Schwer) und Anzahl (5 bis 20)
-* /F22/ Die optionalen Parameter müssen dem Benutzer offen gezeigt werden.
-* /F23/ Die Parameter müssen durch einfache Regler konfigurierbar sein, sodass man diese schnell per Mausklick auswählen kann.
-* /F24/ Es muss ein sichtbares Textfeld für die Eingabe eines bestimmten Themas geben. 
+#### Auswahl und Anzeige des Lernmaterials
+* /F10/ Der Benutzer muss ein oder mehrere Lernmaterialien aus JabRef auswählen können.
+* /F11/ Das System muss die ausgewählten Lernmaterialien vor der Generierung in Forge Synesis anzeigen.
+* /F12/ Forge Synesis muss sich in einem eigenen Fenster in JabRef öffnen lassen.
+* 
+#### Einstellungen für die Generierung
+* /F20/ Der Benutzer muss die Anzahl, Sprache und Schwierigkeit der Lernkarten festlegen können.
+* /F21/ Der Benutzer muss Deutsch oder Englisch und eine der Schwierigkeitsstufen Leicht, Mittel oder Schwer auswählen können. Die Anzahl der Karten muss zwischen 5 und 20 liegen.
+* /F22/ Der Benutzer muss ein Thema eingeben können. Die Angabe eines Themas ist freiwillig.
+* /F23/ Das System muss die ausgewählten Lernmaterialien und Einstellungen vor dem Start der Generierung anzeigen.
+* 
+#### Generierung der Lernkarten
+* /F30/ Das System muss die ausgewählten Lernmaterialien und Einstellungen an die Gemini API senden.
+* /F31/ Wenn die Gemini API nicht erreichbar ist oder keine verwendbare Antwort liefert, muss das System eine verständliche Fehlermeldung anzeigen. JabRef darf dabei nicht abstürzen.
+* /F32/ Das System muss eine gültige Antwort der Gemini API verarbeiten und die Fragen und Antworten als einzelne Lernkarten in JabRef anzeigen.
+* /F33/ Das System muss die vom Benutzer festgelegte Anzahl an Lernkarten erstellen. Die Karten müssen die gewählte Sprache und Schwierigkeit sowie das angegebene Thema berücksichtigen.
+* /F34/ Jede Lernkarte muss eine Frage und eine Antwort enthalten. Das System darf unvollständige Karten nicht speichern.
+Prüfen, Bearbeiten und Speichern
+* /F40/ Der Benutzer muss die generierten Lernkarten vor dem Speichern prüfen und einzeln bearbeiten können.
+* /F41/ Der Benutzer muss die Lernkarten speichern und dem ausgewählten Lernmaterial zuordnen können.
+* /F42/ Der Benutzer muss gespeicherte Lernkarten nach Fach oder Lernmaterial finden können.
+#### Lernmodus
+* /F50/ Der Benutzer muss eine gespeicherte Lernkartensammlung auswählen und eine Lernsitzung starten können.
+* /F51/ Das System muss die Lernkarten einzeln anzeigen. Zuerst zeigt es die Frage an. Der Benutzer kann danach die Antwort einblenden.
+* /F52/ Der Benutzer muss jede Antwort als richtig oder falsch markieren können. Danach muss das System die nächste Lernkarte anzeigen.
 
-
-* /F30/ Das System muss die ausgewählten Quellen, die konfigurierten Parameter sowie optional das Thema der Flashcards an Gemini AI übermitteln. 
-* /F31/ Ein Fehler seitens Gemini muss als Fehlermeldung an Forge Synesis weitergegeben werden und darf nicht zum Programmabsturz führen.
-* /F32/ Ein
-
+#### Lernergebnis und Lernfortschritt
+* /F60/ Nach einer Lernsitzung muss das System die Anzahl der richtigen und falschen Antworten anzeigen.
+* /F61/ Das System muss den Lernfortschritt für jede Lernkartensammlung speichern und anzeigen. Dazu zeigt es die Anzahl der bearbeiteten Karten sowie die Anzahl der richtigen und falschen Antworten an.
+  
+#### Leere Lernkartensammlung
+* /F70/ Wenn der Benutzer eine leere Lernkartensammlung auswählt, muss das System eine Meldung anzeigen. Der Benutzer kann dann eine andere Sammlung auswählen. Der Lernfortschritt darf sich dabei nicht ändern.
 
 ## 4. Abnahmekriterien
 * /A10/ Lernkarten generieren: Der Benutzer wählt Lernmaterial aus und legt die Anzahl, Sprache, Schwierigkeit und das Thema fest. Forge Synesis erstellt die gewünschte Anzahl Lernkarten auf Grundlage des ausgewählten Materials und zeigt sie in JabRef an.
