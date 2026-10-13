@@ -1,0 +1,21 @@
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# Java compiled files
+*.class
+
+# Build output
+build/
+target/
+
+# Gradle local state and caches
+.gradle/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+secrets.properties
