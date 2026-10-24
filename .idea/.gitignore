@@ -41,3 +41,8 @@ desktop.ini
 .env
 .env.*
 !.env.example
+
+Gemfile.lock
+.jekyll-cache
+.jekyll-metadata
+_site/
