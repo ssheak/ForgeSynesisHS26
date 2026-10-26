@@ -1,0 +1,47 @@
+
+# =========================
+# Java / Gradle build files
+# =========================
+.gradle/
+**/build/
+**/out/
+*.class
+
+
+
+# Generated build output
+build/
+
+# =========================
+# IntelliJ IDEA (local files)
+# =========================
+.idea/
+*.iws
+*.iml
+
+# =========================
+# Operating system files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Logs and temporary files
+# =========================
+*.log
+*.tmp
+*.swp
+*~
+
+# =========================
+# Secrets and local configuration
+# =========================
+.env
+.env.*
+!.env.example
+
+Gemfile.lock
+.jekyll-cache
+.jekyll-metadata
+_site/
