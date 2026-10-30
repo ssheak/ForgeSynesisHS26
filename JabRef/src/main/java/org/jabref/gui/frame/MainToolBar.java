@@ -26,6 +26,7 @@ import org.jabref.gui.cleanup.CleanupAction;
 import org.jabref.gui.edit.EditAction;
 import org.jabref.gui.edit.OpenBrowserAction;
 import org.jabref.gui.exporter.SaveAction;
+import org.jabref.gui.forgesynesis.ForgeSynesisAction;
 import org.jabref.gui.icon.IconTheme;
 import org.jabref.gui.importer.GenerateEntryFromIdDialog;
 import org.jabref.gui.importer.NewDatabaseAction;
@@ -144,7 +145,16 @@ public class MainToolBar extends ToolBar {
                 new Separator(Orientation.VERTICAL),
 
                 new HBox(
-                        factory.createIconButton(StandardActions.OPEN_GITHUB, new OpenBrowserAction("https://github.com/JabRef/jabref", dialogService, preferencesService.getFilePreferences()))));
+                        factory.createIconButton(StandardActions.OPEN_GITHUB, new OpenBrowserAction("https://github.com/JabRef/jabref", dialogService, preferencesService.getFilePreferences()))),
+
+                new Separator(Orientation.VERTICAL),
+
+                new HBox(
+                        factory.createIconButton(StandardActions.OPEN_FORGE_SYNESIS, new ForgeSynesisAction())
+                )
+
+        );
+
 
         leftSpacer.setPrefWidth(50);
         leftSpacer.setMinWidth(Region.USE_PREF_SIZE);
