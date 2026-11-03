@@ -20,6 +20,9 @@
 .idea/httpRequests/
 *.iws
 
+.idea/
+*.iml
+
 # =========================
 # Operating system files
 # =========================
