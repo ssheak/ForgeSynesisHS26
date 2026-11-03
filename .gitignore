@@ -2,24 +2,17 @@
 # =========================
 # Java / Gradle build files
 # =========================
-.gradle/
+**/.gradle/
 **/build/
 **/out/
 *.class
+**/buildSrc
 
 # =========================
 # IntelliJ IDEA (local files)
 # =========================
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/usage.statistics.xml
-.idea/shelf/
-.idea/dictionaries/
-.idea/dataSources/
-.idea/dataSources.local.xml
-.idea/httpRequests/
-*.iws
 .idea/
+*.iws
 *.iml
 
 # =========================
@@ -48,3 +41,8 @@ Gemfile.lock
 .jekyll-cache
 .jekyll-metadata
 _site/
+
+# =========================
+# Maven
+# =========================
+**/target/
