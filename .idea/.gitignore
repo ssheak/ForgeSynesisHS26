@@ -3,6 +3,7 @@
 # Java / Gradle build files
 # =========================
 .gradle/
+/build
 **/build/
 **/out/
 *.class
