@@ -4,9 +4,10 @@ title : Technische Dokumentation
 ---
 # Technische Dokumentation
 
-| Version | Projektname   | Autor                                                                            | Status                                         | Datum      | Kommentar |
-| ------- |---------------|----------------------------------------------------------------------------------|------------------------------------------------|------------| --------- |
-|  0.1    | Forge Synesis | Jasra Mohamed Yousaf <br>Bavan Sivaloganathan <br>Erind Shima <br>Shahriar Sheak | in Bearbeitung | 30.10.2026 | |
+| Version | Projektname   | Autor                                                                        | Status | Datum      | Kommentar                                                                                                                                                                        |
+|---------|---------------|------------------------------------------------------------------------------|--------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.1     | Forge Synesis | Jasra Mohamed Yousaf <br>Bavan Sivaloganathan <br>Erind Shima <br>Shahriar Sheak | Fertig | 30.10.2026 |                                                                                                                                                                                  |
+| 0.2     | Forge Synesis | Shahriar Sheak | Fertig | 10.11.2026 | Zustandsdiagramm und verbesserte Klassen- und Aktivitätsdiagramme hinzugefügt.<br/>Eintrag zu Statik beigefügt.<br/>Pflichtenheft.md referenziert (link funktioniert nach merge) |
 
 
 # 1 Einführung
@@ -19,7 +20,7 @@ Das Dokument soll einerseits sicherstellen, dass Auftraggeber und Entwickler ein
 
 # 1.2 Beziehung zu anderen Dokumenten
 
-Als Grundlage für diese Dokumentation dient das Pflichtenheft von Forge Synesis. Zusätzlich wird der Projektplan als Referenz für die geplanten Entwicklungsschritte herangezogen.
+- [Pflichtenheft](./Pflichtenheft.md)
 
 # 2. Systemübersicht
 
@@ -52,14 +53,21 @@ Sobald der User die Generierung startet, werden die ausgewählten Dokumente und 
 
 ## 5.1 Statik
 
-(Noch anzufertigen)
+Die Funktionalität von Forge Synesis wird durch mehrere Klassen innerhalb des Packages org.jabref.gui.forgesynesis umgesetzt. Die Einstiegsklasse zum Öffnen der Anwendung ist ForgeSynesisAction, welche das Forge-Synesis-Fenster innerhalb von JabRef aufruft.
 
-## 5.2 Dynamik
+Die Klasse ForgeSynesisView ist für die Darstellung der Benutzeroberfläche verantwortlich. Sie enthält sämtliche UI-Elemente, darunter die Parameterschalter sowie die Eingabe- und Anzeigefelder. Die Klasse ForgeSynesisViewModel kapselt die zugrunde liegenden Funktionen und verwaltet die für die Benutzeroberfläche benötigte Logik und Daten.
 
+Die Klasse ForgeSynesisApiClient stellt die Schnittstelle zur externen API bereit. ForgeSynesisService übernimmt die Verwaltung und Verwendung dieses API-Clients und koordiniert die Kommunikation mit dem externen Dienst.
 
+Die Klassen GenerationsResponse und Flashcard dienen als Datenmodelle für die Flashcard-Generierung. Sie repräsentieren die API-Antwort beziehungsweise die darin enthaltenen Flashcards und werden zur Speicherung und Weiterverarbeitung der generierten Ergebnisse verwendet.
+
+Die Klasse GenerationRequest repräsentiert die Anfrage zur Flashcard-Generierung. Sie setzt sich aus den Objekten GenerationSettings und SourceDocument zusammen, welche die gewählten Generierungsparameter beziehungsweise die Quelldokumente enthalten. ForgeSynesisService verwendet diese Anfrage, um die Flashcard-Generierung über die API anzustoßen.
 
 ![Klassendiagramm](/docs/sweng/diagrams/Klassendiagramm_ForgeSynesis.png)
 
+## 5.2 Dynamik
+
+Der typische Ablauf für die Generierung von Flashcards ist anhand folgenden Diagrammen dargestellt. 
 
 ![Sequenzdiagramm](/docs/sweng/diagrams/Sequenzdiagramm_ForgeSynesis.png)
 
