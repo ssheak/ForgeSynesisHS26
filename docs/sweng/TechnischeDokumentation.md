@@ -2,7 +2,7 @@
 layout: default
 title : Technische Dokumentation
 ---
-# Technische Dokumentation (Template)
+# Technische Dokumentation
 
 | Version | Projektname   | Autor                                                                            | Status                                         | Datum      | Kommentar |
 | ------- |---------------|----------------------------------------------------------------------------------|------------------------------------------------|------------| --------- |
@@ -65,6 +65,8 @@ Sobald der User die Generierung startet, werden die ausgewählten Dokumente und 
 
 
 ![Aktivitätsdiagramm](/docs/sweng/diagrams/AktivitaetsDiagramm_ForgeSynesis.png)
+
+![Zustandsdiagramm](/docs/sweng/diagrams/ZustandsDiagramm_ForgeSynesis.png)
 
 ## 5.3 Logik
 
