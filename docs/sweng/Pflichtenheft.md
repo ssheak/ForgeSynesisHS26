@@ -47,12 +47,13 @@ Mögliche Erweiterungen:
 
 ### 1.4 Referenzierte Dokumente
 
-| Dokument | Beschreibung | Link |
-|---|---|---|
-| JabRef Documentation | Dokumentation der Literaturverwaltungssoftware JabRef und ihrer Funktionen | https://docs.jabref.org/ |
-| Google Gemini API Documentation | Dokumentation der Gemini API zur KI-gestützten Generierung von Lernkarten | https://ai.google.dev/gemini-api/docs |
-| Java Documentation | Offizielle Dokumentation der Programmiersprache Java und ihrer Bibliotheken | https://docs.oracle.com/en/java/ |
-| Markdown Guide | Referenz für die Formatierung der Projektdokumentation in Markdown | https://www.markdownguide.org/ |
+| Dokument                        | Beschreibung                                                                | Link                                                  |
+|---------------------------------|-----------------------------------------------------------------------------|-------------------------------------------------------|
+| JabRef Documentation            | Dokumentation der Literaturverwaltungssoftware JabRef und ihrer Funktionen  | https://docs.jabref.org/                              |
+| Google Gemini API Documentation | Dokumentation der Gemini API zur KI-gestützten Generierung von Lernkarten   | https://ai.google.dev/gemini-api/docs                 |
+| Java Documentation              | Offizielle Dokumentation der Programmiersprache Java und ihrer Bibliotheken | https://docs.oracle.com/en/java/                      |
+| Markdown Guide                  | Referenz für die Formatierung der Projektdokumentation in Markdown          | https://www.markdownguide.org/                        |
+| Technische Dokumentation        | Referenz für den Meilenstein "Technische Dokumentation"                       | [Technische Dokumentation](./TechnischeDokumentation) |
 
 ### 1.5 Überblick
 
