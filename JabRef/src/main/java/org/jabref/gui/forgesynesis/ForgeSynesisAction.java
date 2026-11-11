@@ -10,6 +10,8 @@ public class ForgeSynesisAction extends SimpleCommand {
 
 
 
+    //Todo: Stop making a new stage, instead toggle the window, if we want an integrated panel
+
     @Override
     public void execute() {
         ForgeSynesisView view = new ForgeSynesisView();

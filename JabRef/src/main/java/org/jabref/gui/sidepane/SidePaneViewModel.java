@@ -92,6 +92,12 @@ public class SidePaneViewModel extends AbstractViewModel {
                         new MoveUpAction(pane),
                         new MoveDownAction(pane),
                         sidePaneContentFactory);
+                case FORGE_SYNESIS -> new ForgeSynesisSidePaneComponent(
+                        new ClosePaneAction(pane),
+                        new MoveUpAction(pane),
+                        new MoveDownAction(pane),
+                        sidePaneContentFactory
+                );
             };
             sidePaneComponentLookup.put(pane, sidePaneComponent);
         }
