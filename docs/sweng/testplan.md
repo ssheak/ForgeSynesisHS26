@@ -13,12 +13,12 @@ title : Testplan
 
 
 # 1. Einführung
-
-Kurze Beschreibung des Projekts/Features.
+Forge Synesis ist eine Erweiterung für JabRef, mit der Benutzer Lernmaterialien aus ihrer JabRef-Bibliothek auswählen und
+daraus mithilfe der Gemini API Lernkarten erstellen können. Die generierten Lernkarten können geprüft, bearbeitet und
+gespeichert werden. Im Study Mode können Benutzer die Karten durchgehen, Antworten aufdecken und als richtig oder
+falsch markieren. Das System erfasst anschliessend die Lernergebnisse und den Lernfortschritt.
 
 ## 1.1 Zweck
-
-Wozu dient das Dokument und an wen richtet es sich (Kunde, Internes Testteam, ...)
 
 ## 1.2 Beziehung zu anderen Dokumenten
 
