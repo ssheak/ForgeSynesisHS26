@@ -34,6 +34,7 @@ import org.jabref.gui.actions.ActionHelper;
 import org.jabref.gui.actions.SimpleCommand;
 import org.jabref.gui.actions.StandardActions;
 import org.jabref.gui.desktop.JabRefDesktop;
+import org.jabref.gui.forgesynesis.ForgeSynesisView;
 import org.jabref.gui.importer.NewEntryAction;
 import org.jabref.gui.importer.actions.OpenDatabaseAction;
 import org.jabref.gui.keyboard.KeyBinding;
@@ -94,6 +95,9 @@ public class JabRefFrame extends BorderPane implements LibraryTabContainer, UiMe
     private final PushToApplicationCommand pushToApplicationCommand;
     private final SidePane sidePane;
     private final TabPane tabbedPane = new TabPane();
+
+    private final ForgeSynesisView forgeSynesisView = new ForgeSynesisView();
+    private boolean forgeSynesisVisible = false;
 
     private Subscription dividerSubscription;
 
@@ -216,11 +220,23 @@ public class JabRefFrame extends BorderPane implements LibraryTabContainer, UiMe
         setTop(head);
 
         splitPane.getItems().addAll(tabbedPane);
+        splitPane.getItems().addAll(forgeSynesisView);
         SplitPane.setResizableWithParent(sidePane, false);
         sidePane.widthProperty().addListener(c -> updateSidePane());
         sidePane.getChildren().addListener((InvalidationListener) c -> updateSidePane());
         updateSidePane();
+
         setCenter(splitPane);
+    }
+
+    public void toggleForgeSynesisPane() {
+        if (forgeSynesisVisible) {
+            splitPane.getItems().remove(forgeSynesisView);
+            forgeSynesisVisible = false;
+        } else {
+            splitPane.getItems().add(forgeSynesisView);
+            forgeSynesisVisible = true;
+        }
     }
 
     private void updateSidePane() {
@@ -257,6 +273,9 @@ public class JabRefFrame extends BorderPane implements LibraryTabContainer, UiMe
                         sidePane.getSidePaneComponent(SidePaneType.GROUPS).requestFocus();
                         event.consume();
                     break;
+                    case FOCUS_FORGE_SYNESIS:
+                        sidePane.getSidePaneComponent(SidePaneType.FORGE_SYNESIS).requestFocus();
+                        event.consume();
                     case NEXT_LIBRARY:
                         tabbedPane.getSelectionModel().selectNext();
                         event.consume();
