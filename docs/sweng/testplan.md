@@ -29,13 +29,14 @@ Mit den Tests soll überprüft werden, ob die entwickelten Funktionen wie vorges
 - der Study Mode und die Anzeige des Lernfortschritts richtig funktionieren;
 - Fehler nicht dazu führen, dass Forge Synesis oder JabRef abstürzen.
 ## 1.2 Beziehung zu anderen Dokumenten
-| Dokument | Beschreibung | Link |
-|---|---|---|
-| JabRef Documentation | Dokumentation der Literaturverwaltungssoftware JabRef und ihrer Funktionen | https://docs.jabref.org/ |
-| Google Gemini API Documentation | Dokumentation der Gemini API zur KI-gestützten Generierung von Lernkarten | https://ai.google.dev/gemini-api/docs |
-| Java Documentation | Offizielle Dokumentation der Programmiersprache Java und ihrer Bibliotheken | https://docs.oracle.com/en/java/ |
-| Pflichtenheft Forge Synesis | funktionale Anforderungen /F10/ bis /F70/ , Abnahmekriterien /A10/ bis /A70/ sowie Use Cases |[Pflichtenheft.md](Pflichtenheft.md)|
-| Projektplan | zeitliche Planung der Entwicklung und Prüfung |[Projektplan.pdf](Projektplan.pdf)|
+| Dokument                        | Beschreibung                                                                                 | Link                                             |
+|---------------------------------|----------------------------------------------------------------------------------------------|--------------------------------------------------|
+| JabRef Documentation            | Dokumentation der Literaturverwaltungssoftware JabRef und ihrer Funktionen                   | https://docs.jabref.org/                         |
+| Google Gemini API Documentation | Dokumentation der Gemini API zur KI-gestützten Generierung von Lernkarten                    | https://ai.google.dev/gemini-api/docs            |
+| Java Documentation              | Offizielle Dokumentation der Programmiersprache Java und ihrer Bibliotheken                  | https://docs.oracle.com/en/java/                 |
+| Pflichtenheft Forge Synesis     | funktionale Anforderungen /F10/ bis /F70/ , Abnahmekriterien /A10/ bis /A70/ sowie Use Cases | [Pflichtenheft.md](Pflichtenheft.md)             |
+| Projektplan                     | zeitliche Planung der Entwicklung und Prüfung                                                | [Projektplan.pdf](Projektplan.pdf)               |
+| Technisches Dokument            | Beschreibt die Entwicklung am Projekt                                                        | [TechnischesDokument.md](TechnischesDokument.md) |
 
 
 ## 2. Systemübersicht
