@@ -29,28 +29,69 @@ Mit den Tests soll überprüft werden, ob die entwickelten Funktionen wie vorges
 - der Study Mode und die Anzeige des Lernfortschritts richtig funktionieren;
 - Fehler nicht dazu führen, dass Forge Synesis oder JabRef abstürzen.
 ## 1.2 Beziehung zu anderen Dokumenten
+| Dokument | Beschreibung | Link |
+|---|---|---|
+| JabRef Documentation | Dokumentation der Literaturverwaltungssoftware JabRef und ihrer Funktionen | https://docs.jabref.org/ |
+| Google Gemini API Documentation | Dokumentation der Gemini API zur KI-gestützten Generierung von Lernkarten | https://ai.google.dev/gemini-api/docs |
+| Java Documentation | Offizielle Dokumentation der Programmiersprache Java und ihrer Bibliotheken | https://docs.oracle.com/en/java/ |
+| Pflichtenheft Forge Synesis | funktionale Anforderungen /F10/ bis /F70/ , Abnahmekriterien /A10/ bis /A70/ sowie Use Cases |[Pflichtenheft.md](Pflichtenheft.md)|
+| Projektplan | zeitliche Planung der Entwicklung und Prüfung |[Projektplan.pdf](Projektplan.pdf)|
 
-Hier kann auf andere Dokumente referenziert werden die
-für den Testplan relevant sind. Das kann zum Beispiel eine Anforderungsspezifikation oder ein Designdokument sein.
-Stellen sie sich vor, dass die Tests typischerweise von einem eigenen Testteam durchgeführt werden.
 
 ## 2. Systemübersicht
+Forge Synesis wird als Erweiterung in JabRef eingebunden und öffnet ein eigenes Fenster, in dem Benutzer Lernkarten erstellen können. Dafür wählen sie ein oder mehrere Lernmaterialien aus ihrer JabRef-Bibliothek aus. Anschliessend können sie einstellen, wie viele Karten erstellt werden sollen, in welcher Sprache und mit welchem Schwierigkeitsgrad. Zusätzlich besteht die Möglichkeit, ein bestimmtes Thema anzugeben.
 
-Hier sollte eine kurze Übersicht über das System gegeben werden, mit besonderem Fokus auf die zu testenden Komponenten.
+Die ausgewählten Materialien und Einstellungen werden an die Forge-Synesis-Komponente weitergegeben, welche die Anfrage an die Gemini API sendet. Die erhaltenen Fragen und Antworten werden danach verarbeitet und als einzelne Lernkarten angezeigt. Der Benutzer kann die Karten überprüfen, bei Bedarf bearbeiten und anschliessend speichern.
 
+Die gespeicherten Lernkarten werden einer Sammlung oder dem entsprechenden Lernmaterial zugeordnet. Im Study Mode kann der Benutzer die Karten einzeln durchgehen und die jeweilige Antwort aufdecken. Danach gibt er an, ob er die Antwort richtig oder falsch hatte. Am Ende der Lernsitzung werden die Ergebnisse und der bisherige Lernfortschritt angezeigt.
+
+Die Tests konzentrieren sich hauptsächlich auf folgende Bereiche:
+
+1. Einbindung von Forge Synesis in JabRef und Anzeige des eigenen Fensters;
+2. Auswahl und Anzeige der Lernmaterialien;
+3. Überprüfung der Einstellungen für die Kartengenerierung;
+4. Verbindung zur Gemini API und Verarbeitung der zurückgegebenen Daten;
+5. Überprüfung, Bearbeitung und Speicherung der Lernkarten;
+6. Funktion des Study Modes sowie Anzeige der Ergebnisse und des Lernfortschritts;
+7. Behandlung von Fehlern, beispielsweise bei einer nicht verfügbaren API oder einer leeren Sammlung.
 
 ## 3. Merkmale
 
 ### 3.1 Zu testende Merkmale (Features / Funktionen)
 
 #### 3.1.1 Funktionale Anforderungen
-
-Welche spezifizierten funktionalen Anforderungen werden getestet? Referenzieren sie auch mittels dem Identifier (z.B. /LF10/ ) im Pflichtenheft.
+| Anforderung | Zu prüfendes Merkmal |
+|---|---|
+| /F10/ | Ein oder mehrere Lernmaterialien aus JabRef auswählen |
+| /F11/ | Ausgewählte Lernmaterialien vor der Generierung anzeigen |
+| /F12/ | Forge Synesis in einem eigenen JabRef-Fenster öffnen |
+| /F20/ | Anzahl, Sprache und Schwierigkeit festlegen |
+| /F21/ | Zulässige Werte validieren: Deutsch/Englisch, Leicht/Mittel/Schwer und 5–20 Karten |
+| /F22/ | Optionales Thema eingeben |
+| /F23/ | Ausgewählte Materialien und Einstellungen vor dem Start anzeigen |
+| /F30/ | Materialien und Einstellungen an die Gemini API übermitteln |
+| /F31/ | Nicht erreichbare API oder unbrauchbare Antwort behandeln, ohne dass JabRef abstürzt |
+| /F32/ | Gültige API-Antwort verarbeiten und einzelne Lernkarten anzeigen |
+| /F33/ | Gewünschte Anzahl sowie Sprache, Schwierigkeit und Thema berücksichtigen |
+| /F34/ | Nur Lernkarten mit Frage und Antwort zulassen bzw. speichern |
+| /F40/ | Generierte Lernkarten einzeln prüfen und bearbeiten |
+| /F41/ | Lernkarten speichern und dem ausgewählten Lernmaterial zuordnen |
+| /F42/ | Gespeicherte Lernkarten nach Fach oder Lernmaterial finden |
+| /F50/ | Lernkartensammlung auswählen und Lernsitzung starten |
+| /F51/ | Karten einzeln anzeigen und Antwort aufdecken |
+| /F52/ | Antwort als richtig oder falsch markieren und nächste Karte anzeigen |
+| /F60/ | Anzahl richtiger und falscher Antworten nach der Sitzung anzeigen |
+| /F61/ | Lernfortschritt pro Sammlung speichern und anzeigen |
+| /F70/ | Leere Sammlung melden und Lernfortschritt unverändert lassen |
 
 ### 3.2 Nicht zu testende Merkmale (Features / Funktionen)
+Folgende Punkte werden in diesem Testplan nicht als eigenständige Funktionen getestet:
 
-Welche Aspekte werden explizit nicht getestet? Bitte begründen weshalb nicht.
+- **Punktesystem und Meilensteine (XP):** Diese werden im Pflichtenheft nur als mögliche Erweiterungen erwähnt und sind keine festen funktionalen Anforderungen.
 
+- **Fachliche Richtigkeit der KI-generierten Inhalte:** Die Tests überprüfen, ob die Lernkarten richtig aufgebaut sind, die gewünschte Anzahl enthalten und die gewählten Einstellungen berücksichtigt werden. Ob die Antworten fachlich korrekt sind, kann jedoch nicht vollständig durch automatisierte Tests geprüft werden. Dafür ist bei Bedarf eine zusätzliche Überprüfung durch eine Person notwendig.
+
+- **Verfügbarkeit von Google Gemini:** Es wird getestet, wie Forge Synesis reagiert, wenn die Gemini API funktioniert, Fehler zurückgibt oder nicht erreichbar ist. Die Zuverlässigkeit des externen Dienstes selbst wird jedoch nicht getestet.
 ## 4. Vorgehensweise
 
 ### 4.1 Modul- und Integrationstests
