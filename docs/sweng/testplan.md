@@ -128,39 +128,158 @@ Falls Forge Synesis als Webseite und nicht direkt in JabRef getestet wird, müss
 ## 6 Testfälle
 
 ### 6.1 Modultests
+| Name der Klasse       | Name des Testfalls                                         |
+|-----------------------|------------------------------------------------------------|
+| ForgeSynesisViewModel | Überprüfung der Parameter- und Prompteingabe               |
+| ForgeSynesisViewModel | Überprüfung der Standardwerte und Konfigurationsänderungen |
+| ForgeSynesisService   | Überprüfung der Flashcard-Generierung                      |
+| ForgeSynesisService   | Überprüfung der Eingabevalidierung und Fehlerbehandlung    |
+| ForgeSynesisAPIClient | Überprüfung der API-Anfrage und Parametereingabe           |
+| ForgeSynesisAPIClient | Überprüfung der Verarbeitung von API-Antworten             |
 
-Ihre Module sollten wenn immer möglich über automatisierte Unittests getestet werden.
-Diese können Sie hier kurz (tabellarisch) auflisten. Es reicht, wenn Sie den Klassennamen und den Namen des Testfalls anschreiben.
-
-| Name der Klasse | Name des Testfalls |
-|-----------------|--------------------|
-|   Testklasse 1  |   Testfall 1       |
-
-
-Falls Sie ein Modul nicht automatisiert Testen können, müssen Sie den manuellen Testablauf nachfolgend beschreiben.
 
 ##### Testfall: /TM10/
 *Testziel:*
-
+Überprüfung der korrekten Darstellung und Bedienbarkeit der Forge-Synesis-Oberfläche. <br> 
 *Voraussetzung:*
-
+JabRef ist gestartet und eine Bibliothek wurde geöffnet <br>
 *Eingabe:*
-
+Der Benutzer öffnet Forge Synesis über den Knopf in der Toolbar, oder der Tasteneingabe "Alt+2" <br>
 *Erwartete Ausgabe:*
+Das Forge-Synesis-Panel wird geöffnet. Alle vorhergesehen UI-Elemente werden korrekt dargestellt und sind bedienbar
+<br>  *Abhängigkeiten:*
+JabRef, JavaFX, ForgeSynesisView und ForgeSynesis.fxml
 
-*Abhängigkeiten:*
 
 ### 6.2 Funktionstests
-Beschreiben sie für die spezifizierten Anforderungen wie sie diese Testen. Für jede Anforderung sollten sie mindestens einen Test schreiben, der das gewünschte Verhalten überprüfen.
-
 ##### Testfall: /TF10/
-*Testziel:*
+*Testziel:* Überprüfung der Auswahl und Anzeige von Lernmaterialien sowie des Öffnens von Forge Synesis in einem eigenen Fenster.
 
-*Voraussetzung:*
+*Voraussetzung:* JabRef wurde gestartet und eine Bibliothek mit mindestens einem geeigneten Lernmaterial ist geöffnet.
 
-*Eingabe:*
+*Eingabe:* Der Benutzer öffnet Forge Synesis über den entsprechenden Menüeintrag und wählt ein oder mehrere Lernmaterialien aus.
 
-*Erwartete Ausgabe:*
+*Erwartete Ausgabe:* Forge Synesis öffnet sich in einem eigenen Fenster. Die ausgewählten Lernmaterialien werden in der Oberfläche angezeigt.
 
-*Abhängigkeiten:*
+*Abhängigkeiten:* JabRef, ForgeSynesisView, JabRef-Auswahlmechanismus.
 
+##### Testfall: /TF11/
+*Testziel:* Überprüfung der Einstellungsmöglichkeiten für die Generierung.
+
+*Voraussetzung:* Forge Synesis wurde geöffnet.
+
+*Eingabe:* Der Benutzer wählt eine Sprache (Deutsch oder Englisch), eine Schwierigkeitsstufe (Leicht, Mittel oder Schwer) und eine Anzahl zwischen 5 und 20 Lernkarten. Zusätzlich kann ein Thema eingegeben werden.
+
+*Erwartete Ausgabe:* Alle ausgewählten Einstellungen und das optionale Thema werden korrekt übernommen. Ungültige Werte für die Anzahl werden verhindert.
+
+*Abhängigkeiten:* ForgeSynesisView, ForgeSynesisViewModel.
+
+##### Testfall: /TF12/
+*Testziel:* Überprüfung der Anzeige der ausgewählten Lernmaterialien und Generierungseinstellungen vor dem Start der Generierung.
+
+*Voraussetzung:* Mindestens ein Lernmaterial wurde ausgewählt und die Generierungsparameter wurden festgelegt.
+
+*Eingabe:* Der Benutzer überprüft die Konfiguration vor dem Start der Generierung.
+
+*Erwartete Ausgabe:* Die ausgewählten Lernmaterialien, die Sprache, die Schwierigkeitsstufe, die Anzahl der Lernkarten und das optionale Thema werden korrekt angezeigt.
+
+*Abhängigkeiten:* ForgeSynesisView, ForgeSynesisViewModel.
+
+##### Testfall: /TF13/
+*Testziel:* Überprüfung der Generierung und Verarbeitung von Lernkarten anhand der ausgewählten Lernmaterialien und Einstellungen.
+
+*Voraussetzung:* Mindestens ein geeignetes Lernmaterial wurde ausgewählt. Eine Internetverbindung und ein gültiger API-Zugang sind vorhanden.
+
+*Eingabe:* Der Benutzer startet die Generierung mit den zuvor festgelegten Einstellungen.
+
+*Erwartete Ausgabe:* Die Lernmaterialien und Einstellungen werden an die Gemini API übermittelt. Die gültige API-Antwort wird verarbeitet und die festgelegte Anzahl an Lernkarten wird in der gewählten Sprache und Schwierigkeit sowie unter Berücksichtigung des angegebenen Themas angezeigt. Jede Karte enthält eine Frage und eine Antwort. Unvollständige Karten werden nicht gespeichert.
+
+*Abhängigkeiten:* ForgeSynesisView, ForgeSynesisViewModel, ForgeSynesisService, ForgeSynesisAPIClient, Gemini API.
+
+##### Testfall: /TF14/
+*Testziel:* Überprüfung der Fehlerbehandlung bei fehlgeschlagener Kommunikation mit der Gemini API.
+
+*Voraussetzung:* Forge Synesis ist geöffnet.
+
+*Eingabe:* Der Benutzer startet eine Generierung, während die Internetverbindung unterbrochen ist, der API-Zugang ungültig ist oder die API keine verwendbare Antwort liefert.
+
+*Erwartete Ausgabe:* Eine verständliche Fehlermeldung wird angezeigt. JabRef bleibt weiterhin bedienbar und stürzt nicht ab.
+
+*Abhängigkeiten:* ForgeSynesisService, ForgeSynesisAPIClient, Gemini API.
+
+##### Testfall: /TF15/
+*Testziel:* Überprüfung der Bearbeitung und Speicherung generierter Lernkarten.
+
+*Voraussetzung:* Es wurden erfolgreich Lernkarten generiert.
+
+*Eingabe:* Der Benutzer überprüft die generierten Lernkarten, bearbeitet einzelne Fragen oder Antworten und speichert die Lernkartensammlung.
+
+*Erwartete Ausgabe:* Die Änderungen werden übernommen und die Lernkarten werden gespeichert. Sie werden dem ausgewählten Lernmaterial zugeordnet.
+
+*Abhängigkeiten:* ForgeSynesisView, ForgeSynesisService, Speichermechanismus von JabRef.
+
+##### Testfall: /TF16/
+*Testziel:* Überprüfung der Suche nach gespeicherten Lernkarten.
+
+*Voraussetzung:* Es existieren gespeicherte Lernkartensammlungen zu verschiedenen Lernmaterialien oder Fächern.
+
+*Eingabe:* Der Benutzer sucht nach einer Lernkartensammlung anhand eines Fachs oder eines zugeordneten Lernmaterials.
+
+*Erwartete Ausgabe:* Die passenden Lernkartensammlungen werden angezeigt.
+
+*Abhängigkeiten:* Suchfunktion, Speichermechanismus, ForgeSynesisService.
+
+##### Testfall: /TF17/
+*Testziel:* Überprüfung des Starts einer Lernsitzung und der Anzeige einzelner Lernkarten.
+
+*Voraussetzung:* Es existiert mindestens eine gespeicherte Lernkartensammlung mit Lernkarten.
+
+*Eingabe:* Der Benutzer wählt eine Lernkartensammlung aus und startet eine Lernsitzung. Anschliessend lässt er sich die Antwort einer angezeigten Karte einblenden.
+
+*Erwartete Ausgabe:* Die Frage der ersten Lernkarte wird angezeigt. Die Antwort bleibt zunächst verborgen und wird erst nach entsprechender Benutzeraktion eingeblendet.
+
+*Abhängigkeiten:* Lernmodus, ForgeSynesisView, Speichermechanismus.
+
+##### Testfall: /TF18/
+*Testziel:* Überprüfung der Bewertung von Lernkarten während einer Lernsitzung.
+
+*Voraussetzung:* Eine Lernsitzung wurde gestartet und eine Lernkarte wird angezeigt.
+
+*Eingabe:* Der Benutzer blendet die Antwort ein und markiert diese als richtig oder falsch.
+
+*Erwartete Ausgabe:* Die Bewertung wird übernommen und die nächste Lernkarte wird angezeigt.
+
+*Abhängigkeiten:* Lernmodus, Fortschrittsverwaltung.
+
+##### Testfall: /TF19/
+*Testziel:* Überprüfung der Anzeige des Lernergebnisses nach einer abgeschlossenen Lernsitzung.
+
+*Voraussetzung:* Eine Lernsitzung wurde vollständig abgeschlossen und die Lernkarten wurden bewertet.
+
+*Eingabe:* Der Benutzer beendet die Lernsitzung.
+
+*Erwartete Ausgabe:* Das System zeigt die Anzahl der richtig und falsch beantworteten Lernkarten an.
+
+*Abhängigkeiten:* Lernmodus, Fortschrittsverwaltung.
+
+##### Testfall: /TF20/
+*Testziel:* Überprüfung der Speicherung und Anzeige des Lernfortschritts.
+
+*Voraussetzung:* Es wurde mindestens eine Lernsitzung mit einer gespeicherten Lernkartensammlung durchgeführt.
+
+*Eingabe:* Der Benutzer öffnet die Übersicht des Lernfortschritts einer Lernkartensammlung.
+
+*Erwartete Ausgabe:* Das System zeigt die Anzahl der bearbeiteten Lernkarten sowie die Anzahl der richtigen und falschen Antworten an. Die gespeicherten Werte bleiben auch nach einem Neustart von JabRef erhalten.
+
+*Abhängigkeiten:* Fortschrittsverwaltung, Speichermechanismus.
+
+##### Testfall: /TF21/
+*Testziel:* Überprüfung des Verhaltens bei der Auswahl einer leeren Lernkartensammlung.
+
+*Voraussetzung:* Es existiert eine gespeicherte, aber leere Lernkartensammlung sowie mindestens eine weitere Lernkartensammlung.
+
+*Eingabe:* Der Benutzer wählt die leere Lernkartensammlung aus.
+
+*Erwartete Ausgabe:* Das System zeigt eine entsprechende Meldung an und ermöglicht die Auswahl einer anderen Sammlung. Der bestehende Lernfortschritt bleibt unverändert.
+
+*Abhängigkeiten:* Lernmodus, Speichermechanismus, Fortschrittsverwaltung.
