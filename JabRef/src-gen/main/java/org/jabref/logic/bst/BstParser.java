@@ -1,4 +1,4 @@
-// Generated from /home/shahriar/Schreibtisch/SoftwareEngineering/Project/ForgeSynesisHS26/JabRef/src/main/antlr4/org/jabref/bst/Bst.g4 by ANTLR 4.13.1
+// Generated from /Users/sivaloganathannadarajah/IdeaProjects/ForgeSynesisHS26/JabRef/src/main/antlr4/org/jabref/bst/Bst.g4 by ANTLR 4.13.1
 package org.jabref.logic.bst;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
