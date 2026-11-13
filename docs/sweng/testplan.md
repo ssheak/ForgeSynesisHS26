@@ -4,12 +4,10 @@ title : Testplan
 ---
 # Testplan template
 
-*Dieses Template ist eine Adaption des von der Uni Bremen vorgeschlagenen [Testplans (Softwareprojekt 2009/10)](http://www.informatik.uni-bremen.de/st/Lehre/swp0910/beispiele/testplan.pdf). Sie finden darin auch detailliertere Beschreibungen der einzelnen Abschnitte.*
-
 
 | Version | Projektname | Autor  | Status | Datum | Kommentar |
 | ------- | ----- | ------ | ------ | ----- | --------- |
-|  0.1    |  Name   | Name | in Bearbeitung | 01.01.1970 | |
+|  0.1  |  Forge Synesis  | Jasra Mohamed Yousaf, Erind Shima, Shahriar Sheak, Bavan Sivaloganathan| in Bearbeitung | 13.11.2026 | |
 
 
 # 1. Einführung
@@ -19,7 +17,17 @@ gespeichert werden. Im Study Mode können Benutzer die Karten durchgehen, Antwor
 falsch markieren. Das System erfasst anschliessend die Lernergebnisse und den Lernfortschritt.
 
 ## 1.1 Zweck
+Der Testplan beschreibt, wie Forge Synesis getestet werden soll. Dabei werden die verschiedenen Testfälle sowie die Voraussetzungen für deren Durchführung festgelegt. Das Dokument richtet sich an das Entwicklungsteam, die betreuenden Personen und externe Tester.
 
+Mit den Tests soll überprüft werden, ob die entwickelten Funktionen wie vorgesehen arbeiten. Dabei wird insbesondere darauf geachtet, dass:
+
+- die geforderten Funktionen korrekt umgesetzt wurden;
+- Eingaben und Grenzwerte richtig verarbeitet werden;
+- die Verbindung zur Gemini API funktioniert;
+- fehlerhafte oder unvollständige Antworten der API abgefangen werden;
+- Lernkarten gespeichert und später wieder aufgerufen werden können;
+- der Study Mode und die Anzeige des Lernfortschritts richtig funktionieren;
+- Fehler nicht dazu führen, dass Forge Synesis oder JabRef abstürzen.
 ## 1.2 Beziehung zu anderen Dokumenten
 
 Hier kann auf andere Dokumente referenziert werden die
