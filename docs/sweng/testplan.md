@@ -7,7 +7,7 @@ title : Testplan
 
 | Version | Projektname | Autor  | Status | Datum | Kommentar |
 | ------- | ----- | ------ | ------ | ----- | --------- |
-|  0.1  |  Forge Synesis  | Jasra Mohamed Yousaf, Erind Shima, Shahriar Sheak, Bavan Sivaloganathan| in Bearbeitung | 13.11.2026 | |
+|  0.1  |  Forge Synesis  | Jasra Mohamed Yoosuf, Erind Shima, Shahriar Sheak, Bavan Sivaloganathan| in Bearbeitung | 13.11.2026 | |
 
 
 # 1. Einführung
