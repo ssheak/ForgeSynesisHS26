@@ -1,4 +1,4 @@
-// Generated from /home/shahriar/Schreibtisch/SoftwareEngineering/Project/ForgeSynesisHS26/JabRef/src/main/antlr4/org/jabref/search/Search.g4 by ANTLR 4.13.1
+// Generated from /Users/sivaloganathannadarajah/IdeaProjects/ForgeSynesisHS26/JabRef/src/main/antlr4/org/jabref/search/Search.g4 by ANTLR 4.13.1
 package org.jabref.search;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
