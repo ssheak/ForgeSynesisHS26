@@ -64,6 +64,9 @@ public enum KeyBinding {
     FOCUS_ENTRY_TABLE("Focus entry table", Localization.lang("Focus entry table"), "alt+1", KeyBindingCategory.VIEW),
     FOCUS_GROUP_LIST("Focus group list", Localization.lang("Focus group list"), "alt+s", KeyBindingCategory.VIEW),
     HELP("Help", Localization.lang("Help"), "F1", KeyBindingCategory.FILE),
+
+    FOCUS_FORGE_SYNESIS("Focus Forge Synesis", Localization.lang("Focus Forge Synesis"), "alt+6", KeyBindingCategory.VIEW),
+
     IMPORT_INTO_CURRENT_DATABASE("Import into current library", Localization.lang("Import into current library"), "ctrl+I", KeyBindingCategory.FILE),
     IMPORT_INTO_NEW_DATABASE("Import into new library", Localization.lang("Import into new library"), "ctrl+alt+I", KeyBindingCategory.FILE),
     MERGE_ENTRIES("Merge entries", Localization.lang("Merge entries"), "ctrl+M", KeyBindingCategory.TOOLS),
@@ -110,6 +113,9 @@ public enum KeyBinding {
     STRING_DIALOG_REMOVE_STRING("String dialog, remove string", Localization.lang("String dialog, remove string"), "shift+DELETE", KeyBindingCategory.FILE),
     SYNCHRONIZE_FILES("Synchronize files", Localization.lang("Synchronize files"), "ctrl+shift+F7", KeyBindingCategory.QUALITY),
     TOGGLE_GROUPS_INTERFACE("Toggle groups interface", Localization.lang("Toggle groups interface"), "alt+3", KeyBindingCategory.VIEW),
+
+    TOGGLE_FORGE_INTERFACE("Toggle forge synesis interface", Localization.lang("Toggle forge synesis interface"), "alt+2", KeyBindingCategory.VIEW),
+
     UNABBREVIATE("Unabbreviate", Localization.lang("Unabbreviate"), "ctrl+alt+shift+A", KeyBindingCategory.TOOLS),
     UNDO("Undo", Localization.lang("Undo"), "ctrl+Z", KeyBindingCategory.EDIT),
     WEB_SEARCH("Web search", Localization.lang("Web search"), "alt+4", KeyBindingCategory.SEARCH),

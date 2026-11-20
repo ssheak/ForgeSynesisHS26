@@ -6,14 +6,16 @@ import org.jabref.gui.icon.IconTheme;
 import org.jabref.gui.icon.JabRefIcon;
 import org.jabref.logic.l10n.Localization;
 
+import javax.swing.*;
+
 /**
  * Definition of all possible components in the side pane.
  */
 public enum SidePaneType {
     OPEN_OFFICE("OpenOffice/LibreOffice", IconTheme.JabRefIcons.FILE_OPENOFFICE, StandardActions.TOGGLE_OO),
     WEB_SEARCH(Localization.lang("Web search"), IconTheme.JabRefIcons.WWW, StandardActions.TOGGLE_WEB_SEARCH),
+    FORGE_SYNESIS(Localization.lang("Forge Synesis"), IconTheme.JabRefIcons.GITHUB, StandardActions.TOGGLE_FORGE_SYNESIS),
     GROUPS(Localization.lang("Groups"), IconTheme.JabRefIcons.TOGGLE_GROUPS, StandardActions.TOGGLE_GROUPS);
-
     private final String title;
     private final JabRefIcon icon;
     private final Action toggleAction;

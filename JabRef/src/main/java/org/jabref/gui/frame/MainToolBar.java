@@ -147,7 +147,7 @@ public class MainToolBar extends ToolBar {
                 new HBox(
                         factory.createIconButton(StandardActions.OPEN_GITHUB, new OpenBrowserAction("https://github.com/JabRef/jabref", dialogService, preferencesService.getFilePreferences()))),
                 new HBox(
-                        factory.createIconButton(StandardActions.OPEN_FORGE_SYNESIS, new ForgeSynesisAction())
+                        factory.createIconButton(StandardActions.OPEN_FORGE_SYNESIS, new ForgeSynesisAction(stateManager))
                 ));
 
 
