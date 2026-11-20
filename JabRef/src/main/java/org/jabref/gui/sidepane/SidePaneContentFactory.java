@@ -59,7 +59,6 @@ public class SidePaneContentFactory {
                     stateManager,
                     preferences,
                     dialogService);
-            case FORGE_SYNESIS -> new ForgeSynesisView();
             case OPEN_OFFICE -> new OpenOfficePanel(
                     tabContainer,
                     preferences,
@@ -71,6 +70,7 @@ public class SidePaneContentFactory {
                     entryTypesManager,
                     clipBoardManager,
                     undoManager).getContent();
+            case FORGE_SYNESIS -> new ForgeSynesisView(stateManager);
             case WEB_SEARCH -> new WebSearchPaneView(
                     preferences,
                     dialogService,

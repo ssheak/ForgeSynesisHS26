@@ -7,11 +7,8 @@ public class ForgeSynesisSidePaneComponent extends SidePaneComponent{
                                          SimpleCommand moveUpCommand,
                                          SimpleCommand moveDownCommand,
                                          SidePaneContentFactory contentFactory) {
-        super(SidePaneType.FORGE_SYNESIS,
-                closeCommand,
-                moveUpCommand,
-                moveDownCommand,
-                contentFactory
-        );
+
+        super(SidePaneType.FORGE_SYNESIS, closeCommand, moveUpCommand, moveDownCommand, contentFactory);
+
     }
 }

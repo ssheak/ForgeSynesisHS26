@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
+import org.jabref.gui.StateManager;
 
 public class ForgeSynesisView extends AnchorPane {
 
@@ -27,9 +28,17 @@ public class ForgeSynesisView extends AnchorPane {
     @FXML
     private VBox previewBox;
 
-    public ForgeSynesisView() {
+    private final ForgeSynesisViewModel viewModel;
 
+    public ForgeSynesisView(StateManager stateManager) {
+        this.viewModel = new ForgeSynesisViewModel(stateManager);
         ViewLoader.view(this).root(this).load();
+
+        initializeBindings();
+    }
+
+    public void initializeBindings(){
+        //initialize bindings with ViewModel
     }
 
     @FXML
@@ -39,31 +48,17 @@ public class ForgeSynesisView extends AnchorPane {
 
     @FXML
     private void changeLanguage(){
-        if(languageSwitch.isSelected()){
-            languageSwitch.setText("English");
-            System.out.println("English");
-        }else{
-            languageSwitch.setText("Deutsch");
-            System.out.println("Deutsch");
-        }
+        viewModel.changeLanguage();
     }
 
     @FXML
     private void changeQuantity(){
-        if(quantitySwitch.isSelected()){
-            quantitySwitch.setText("10");
-        }else{
-            quantitySwitch.setText("20");
-        }
+        viewModel.changeQuantity();
     }
 
     @FXML
     private void changeDifficulty(){
-        if(difficultySwitch.isSelected()){
-            difficultySwitch.setText("Hard");
-        }else{
-            difficultySwitch.setText("Easy");
-        }
+        viewModel.changeDifficulty();
     }
 
 }

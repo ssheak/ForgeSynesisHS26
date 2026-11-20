@@ -35,6 +35,7 @@ import org.jabref.gui.actions.SimpleCommand;
 import org.jabref.gui.actions.StandardActions;
 import org.jabref.gui.desktop.JabRefDesktop;
 import org.jabref.gui.forgesynesis.ForgeSynesisView;
+import org.jabref.gui.forgesynesis.RightSidePane;
 import org.jabref.gui.importer.NewEntryAction;
 import org.jabref.gui.importer.actions.OpenDatabaseAction;
 import org.jabref.gui.keyboard.KeyBinding;
@@ -95,8 +96,6 @@ public class JabRefFrame extends BorderPane implements LibraryTabContainer, UiMe
     private final PushToApplicationCommand pushToApplicationCommand;
     private final SidePane sidePane;
     private final TabPane tabbedPane = new TabPane();
-
-    private final ForgeSynesisView forgeSynesisView = new ForgeSynesisView();
     private boolean forgeSynesisVisible = false;
 
     private Subscription dividerSubscription;
@@ -220,23 +219,20 @@ public class JabRefFrame extends BorderPane implements LibraryTabContainer, UiMe
         setTop(head);
 
         splitPane.getItems().addAll(tabbedPane);
-        splitPane.getItems().addAll(forgeSynesisView);
+
         SplitPane.setResizableWithParent(sidePane, false);
+        //SplitPane.setResizableWithParent(rightSidePane, false);
         sidePane.widthProperty().addListener(c -> updateSidePane());
         sidePane.getChildren().addListener((InvalidationListener) c -> updateSidePane());
+
+        /*rightSidePane.getChildren().addListener(
+                (InvalidationListener) c -> updateSidePane());*/
+
+
         updateSidePane();
+        //updateRightSidePanel();
 
         setCenter(splitPane);
-    }
-
-    public void toggleForgeSynesisPane() {
-        if (forgeSynesisVisible) {
-            splitPane.getItems().remove(forgeSynesisView);
-            forgeSynesisVisible = false;
-        } else {
-            splitPane.getItems().add(forgeSynesisView);
-            forgeSynesisVisible = true;
-        }
     }
 
     private void updateSidePane() {
@@ -252,6 +248,41 @@ public class JabRefFrame extends BorderPane implements LibraryTabContainer, UiMe
             }
         }
     }
+
+    /*private void updateRightSidePanel(){
+
+        if (rightSidePane.getChildren().isEmpty()){
+            splitPane.getItems().remove(rightSidePane);
+        } else if (!splitPane.getItems().contains(rightSidePane)){
+            splitPane.getItems().add(rightSidePane);
+            updateRightDividerPosition();
+        }
+
+    }
+
+    public void toggleForgeSynesisPanel() {
+        if (splitPane.getItems().contains(rightSidePane)) {
+            splitPane.getItems().remove(rightSidePane);
+        } else {
+            splitPane.getItems().add(rightSidePane);
+            updateRightDividerPosition();
+        }
+    }
+
+    private void updateRightDividerPosition() {
+        Platform.runLater(() -> {
+            if (splitPane.getItems().contains(rightSidePane)
+                    && splitPane.getDividers().size() >= 2) {
+
+                double rightWidth = 700;
+
+                double position = 1.0
+                        - rightWidth / splitPane.getWidth();
+
+                splitPane.getDividers().get(1).setPosition(position);
+            }
+        });
+    }*/
 
     public void updateDividerPosition() {
         if (mainStage.isShowing() && !sidePane.getChildren().isEmpty()) {

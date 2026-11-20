@@ -78,6 +78,7 @@ public class SidePaneViewModel extends AbstractViewModel {
 
     protected SidePaneComponent getSidePaneComponent(SidePaneType pane) {
         SidePaneComponent sidePaneComponent = sidePaneComponentLookup.get(pane);
+
         if (sidePaneComponent == null) {
             sidePaneComponent = switch (pane) {
                 case GROUPS -> new GroupsSidePaneComponent(
@@ -87,20 +88,24 @@ public class SidePaneViewModel extends AbstractViewModel {
                         sidePaneContentFactory,
                         preferencesService.getGroupsPreferences(),
                         dialogService);
-                case WEB_SEARCH, OPEN_OFFICE -> new SidePaneComponent(pane,
-                        new ClosePaneAction(pane),
-                        new MoveUpAction(pane),
-                        new MoveDownAction(pane),
-                        sidePaneContentFactory);
+
                 case FORGE_SYNESIS -> new ForgeSynesisSidePaneComponent(
                         new ClosePaneAction(pane),
                         new MoveUpAction(pane),
                         new MoveDownAction(pane),
-                        sidePaneContentFactory
-                );
+                        sidePaneContentFactory);
+
+                case WEB_SEARCH, OPEN_OFFICE -> new SidePaneComponent(
+                        pane,
+                        new ClosePaneAction(pane),
+                        new MoveUpAction(pane),
+                        new MoveDownAction(pane),
+                        sidePaneContentFactory);
             };
+
             sidePaneComponentLookup.put(pane, sidePaneComponent);
         }
+
         return sidePaneComponent;
     }
 
