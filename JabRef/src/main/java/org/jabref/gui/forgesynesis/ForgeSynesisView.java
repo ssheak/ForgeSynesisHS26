@@ -7,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 import org.jabref.gui.StateManager;
 
+import java.nio.file.Path;
+import java.util.List;
+
 public class ForgeSynesisView extends AnchorPane {
 
     @FXML
@@ -22,8 +25,6 @@ public class ForgeSynesisView extends AnchorPane {
     @FXML
     private TextArea promptArea;
     @FXML
-    private CheckBox checkBox;
-    @FXML
     private ScrollPane previewPane;
     @FXML
     private VBox previewBox;
@@ -33,12 +34,48 @@ public class ForgeSynesisView extends AnchorPane {
     public ForgeSynesisView(StateManager stateManager) {
         this.viewModel = new ForgeSynesisViewModel(stateManager);
         ViewLoader.view(this).root(this).load();
+        testPdfPreview();
 
         initializeBindings();
     }
 
     public void initializeBindings(){
         //initialize bindings with ViewModel
+    }
+
+    private void testPdfPreview() {
+
+        List<SourceDocument> testFiles = List.of(
+                new SourceDocument(Path.of("C:/Uni/Statistics.pdf")),
+                new SourceDocument(Path.of("C:/Uni/ArtificialIntelligence.pdf")),
+                new SourceDocument(Path.of("C:/Uni/NeuralNetworks.pdf")),
+                new SourceDocument(Path.of("C:/Uni/Statistics.pdf")),
+                new SourceDocument(Path.of("C:/Uni/ArtificialIntelligence.pdf")),
+                new SourceDocument(Path.of("C:/Uni/NeuralNetworks.pdf")),
+                new SourceDocument(Path.of("C:/Uni/Statistics.pdf")),
+                new SourceDocument(Path.of("C:/Uni/ArtificialIntelligence.pdf")),
+                new SourceDocument(Path.of("C:/Uni/NeuralNetworks.pdf")),
+                new SourceDocument(Path.of("C:/Uni/Statistics.pdf")),
+                new SourceDocument(Path.of("C:/Uni/ArtificialIntelligence.pdf")),
+                new SourceDocument(Path.of("C:/Uni/NeuralNetworks.pdf"))
+        );
+
+        displayPdfFiles(testFiles);
+    }
+
+    public void displayPdfFiles(List<SourceDocument> files){
+
+        previewBox.getChildren().clear();
+
+        for(SourceDocument file : files){
+
+            CheckBox checkBox = new CheckBox(file.getFileName());
+
+            checkBox.setUserData(file);
+            previewBox.getChildren().add(checkBox);
+
+        }
+
     }
 
     @FXML
@@ -59,6 +96,17 @@ public class ForgeSynesisView extends AnchorPane {
     @FXML
     private void changeDifficulty(){
         viewModel.changeDifficulty();
+    }
+
+    public List<SourceDocument> getSelectedFiles() {
+
+        return previewBox.getChildren()
+                .stream()
+                .filter(node -> node instanceof CheckBox)
+                .map(node -> (CheckBox) node)
+                .filter(CheckBox::isSelected)
+                .map(checkBox -> (SourceDocument) checkBox.getUserData())
+                .toList();
     }
 
 }
