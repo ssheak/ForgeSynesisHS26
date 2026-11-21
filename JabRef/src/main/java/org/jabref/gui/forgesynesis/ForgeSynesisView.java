@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
 import org.jabref.gui.StateManager;
 
+import java.awt.desktop.SystemEventListener;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class ForgeSynesisView extends AnchorPane {
     @FXML
     private ToggleButton languageSwitch;
     @FXML
-    private ToggleButton extraButton;
+    private Button deckButton;
     @FXML
     private TextArea promptArea;
     @FXML
@@ -43,6 +44,8 @@ public class ForgeSynesisView extends AnchorPane {
         //initialize bindings with ViewModel
     }
 
+
+    //Test if the list in the preview gets expanded
     private void testPdfPreview() {
 
         List<SourceDocument> testFiles = List.of(
@@ -79,8 +82,12 @@ public class ForgeSynesisView extends AnchorPane {
     }
 
     @FXML
+    public void openDeckPreview(){
+        System.out.println("Open Deckpreview");
+    }
+    @FXML
     private void forgeLearningCards(){
-        System.out.println("Test");
+        System.out.println("Send request to Gemini API");
     }
 
     @FXML
