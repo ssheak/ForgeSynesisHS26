@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root prefHeight="384.0" prefWidth="494.0" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jabref.gui.forgesynesis.deckbrowser.DeckBrowserView">
+   <children>
+      <ScrollPane layoutX="247.0" layoutY="31.0" prefHeight="323.0" prefWidth="220.0" />
+      <Button fx:id="goForgeButton" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" text="Forge Cards" onAction="#openForgeWindow"/>
+   </children>
+</fx:root>

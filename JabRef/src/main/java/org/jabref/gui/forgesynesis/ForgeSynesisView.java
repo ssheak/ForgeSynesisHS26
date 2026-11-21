@@ -31,9 +31,11 @@ public class ForgeSynesisView extends AnchorPane {
     private VBox previewBox;
 
     private final ForgeSynesisViewModel viewModel;
+    private final ForgeSynesisMainContainer mainContainer;
 
-    public ForgeSynesisView(StateManager stateManager) {
+    public ForgeSynesisView(StateManager stateManager, ForgeSynesisMainContainer mainContainer) {
         this.viewModel = new ForgeSynesisViewModel(stateManager);
+        this.mainContainer = mainContainer;
         ViewLoader.view(this).root(this).load();
         testPdfPreview();
 
@@ -84,6 +86,7 @@ public class ForgeSynesisView extends AnchorPane {
     @FXML
     public void openDeckPreview(){
         System.out.println("Open Deckpreview");
+        mainContainer.showDeck();
     }
     @FXML
     private void forgeLearningCards(){
