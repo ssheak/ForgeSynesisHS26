@@ -1,14 +1,16 @@
 package org.jabref.gui.forgesynesis;
 
 import com.airhacks.afterburner.views.ViewLoader;
+import javafx.collections.ListChangeListener;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
+import org.jabref.gui.LibraryTab;
+import org.jabref.gui.LibraryTabContainer;
 import org.jabref.gui.StateManager;
+import org.jabref.model.entry.BibEntry;
 
-import java.awt.desktop.SystemEventListener;
-import java.nio.file.Path;
 import java.util.List;
 
 public class ForgeSynesisView extends AnchorPane {
@@ -32,55 +34,65 @@ public class ForgeSynesisView extends AnchorPane {
 
     private final ForgeSynesisViewModel viewModel;
     private final ForgeSynesisMainContainer mainContainer;
+    private final StateManager stateManager;
+    private final LibraryTabContainer tabContainer;
 
-    public ForgeSynesisView(StateManager stateManager, ForgeSynesisMainContainer mainContainer) {
-        this.viewModel = new ForgeSynesisViewModel(stateManager);
+
+    public ForgeSynesisView(LibraryTabContainer tabContainer, StateManager stateManager, ForgeSynesisMainContainer mainContainer) {
+        this.stateManager = stateManager;
+        this.viewModel = new ForgeSynesisViewModel(tabContainer, stateManager);
         this.mainContainer = mainContainer;
+        this.tabContainer = tabContainer;
+
         ViewLoader.view(this).root(this).load();
-        testPdfPreview();
 
-        initializeBindings();
     }
 
-    public void initializeBindings(){
-        //initialize bindings with ViewModel
+    public void refreshLinkedFiles() {
+
+        System.out.println("Refreshing linked files...");
+
+        var selectedEntries = stateManager.getSelectedEntries();
+
+        System.out.println("StateManager: " + stateManager);
+        System.out.println("Selected entries: " + selectedEntries.size());
+
+        selectedEntries.forEach(entry -> {
+            System.out.println("Entry: " + entry.getCitationKey());
+            System.out.println("Files: " + entry.getFiles().size());
+        });
+
+        loadLinkedFiles();
+    }
+
+    public void loadLinkedFiles() {
+        System.out.println("loadLinkedFiles() called");
+
+        viewModel.updateLinkedFiles();
+
+        List<SourceDocument> documents = viewModel.getSourceDocuments();
+
+        System.out.println("Documents found: " + documents.size());
+
+        displayPdfFiles(documents);
     }
 
 
-    //Test if the list in the preview gets expanded
-    private void testPdfPreview() {
-
-        List<SourceDocument> testFiles = List.of(
-                new SourceDocument(Path.of("C:/Uni/Statistics.pdf")),
-                new SourceDocument(Path.of("C:/Uni/ArtificialIntelligence.pdf")),
-                new SourceDocument(Path.of("C:/Uni/NeuralNetworks.pdf")),
-                new SourceDocument(Path.of("C:/Uni/Statistics.pdf")),
-                new SourceDocument(Path.of("C:/Uni/ArtificialIntelligence.pdf")),
-                new SourceDocument(Path.of("C:/Uni/NeuralNetworks.pdf")),
-                new SourceDocument(Path.of("C:/Uni/Statistics.pdf")),
-                new SourceDocument(Path.of("C:/Uni/ArtificialIntelligence.pdf")),
-                new SourceDocument(Path.of("C:/Uni/NeuralNetworks.pdf")),
-                new SourceDocument(Path.of("C:/Uni/Statistics.pdf")),
-                new SourceDocument(Path.of("C:/Uni/ArtificialIntelligence.pdf")),
-                new SourceDocument(Path.of("C:/Uni/NeuralNetworks.pdf"))
-        );
-
-        displayPdfFiles(testFiles);
-    }
-
-    public void displayPdfFiles(List<SourceDocument> files){
+    public void displayPdfFiles(List<SourceDocument> files) {
+        System.out.println("displayPdfFiles() called");
 
         previewBox.getChildren().clear();
 
-        for(SourceDocument file : files){
+        for (SourceDocument file : files) {
+            System.out.println("Adding checkbox for: " + file.getFileName());
 
             CheckBox checkBox = new CheckBox(file.getFileName());
-
             checkBox.setUserData(file);
-            previewBox.getChildren().add(checkBox);
 
+            previewBox.getChildren().add(checkBox);
         }
 
+        System.out.println("Preview children: " + previewBox.getChildren().size());
     }
 
     @FXML

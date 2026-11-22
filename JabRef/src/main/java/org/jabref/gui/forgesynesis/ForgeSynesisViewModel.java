@@ -7,10 +7,13 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import org.jabref.gui.LibraryTab;
+import org.jabref.gui.LibraryTabContainer;
 import org.jabref.gui.StateManager;
 import org.jabref.model.entry.BibEntry;
 import org.jabref.model.entry.LinkedFile;
 
+import java.nio.file.Path;
 import java.util.List;
 
 public class ForgeSynesisViewModel {
@@ -21,32 +24,38 @@ public class ForgeSynesisViewModel {
     private final StringProperty prompt = new SimpleStringProperty("");
 
     private final StateManager stateManager;
+    private final LibraryTabContainer libraryTabContainer;
     private ObservableList<LinkedFile> linkedFiles = FXCollections.observableArrayList();
 
-    public ForgeSynesisViewModel(StateManager stateManager){
+    public ForgeSynesisViewModel(LibraryTabContainer libraryTabContainer, StateManager stateManager){
+        this.libraryTabContainer = libraryTabContainer;
         this.stateManager = stateManager;
-        updateLinkedFiles();
     }
 
     //retrieve the currently selected bibliography entry and its linked files. Update Observable list
     public void updateLinkedFiles() {
-        System.out.println("test updateFiles");
+        System.out.println("updateLinkedFiles() called");
+
         linkedFiles.clear();
 
-        stateManager.getSelectedEntries()
-                .stream()
-                .findFirst()
-                .ifPresent(entry -> {
-                    linkedFiles.setAll(entry.getFiles());
+        LibraryTab currentTab = libraryTabContainer.getCurrentLibraryTab();
 
-                    System.out.println("Selected entry: " + entry);
-                    System.out.println("Number of linked files: " + linkedFiles.size());
+        if (currentTab == null) {
+            System.out.println("No library is currently open.");
+            return;
+        }
 
-                    for (LinkedFile file : linkedFiles) {
-                        System.out.println("File: " + file.getLink());
-                        System.out.println("Description: " + file.getDescription());
-                    }
-                });
+        var entries = currentTab.getBibDatabaseContext()
+                .getDatabase()
+                .getEntries();
+
+        System.out.println("Total entries: " + entries.size());
+
+        for (BibEntry entry : entries) {
+            linkedFiles.addAll(entry.getFiles());
+        }
+
+        System.out.println("Linked files found: " + linkedFiles.size());
     }
 
     public void changeLanguage(){
@@ -97,5 +106,14 @@ public class ForgeSynesisViewModel {
     public ObservableList<LinkedFile> getLinkedFiles(){
         return linkedFiles;
     }
+    public List<SourceDocument> getSourceDocuments() {
+
+        return linkedFiles.stream()
+                .map(file -> new SourceDocument(
+                        Path.of(file.getLink())
+                ))
+                .toList();
+    }
+
 
 }

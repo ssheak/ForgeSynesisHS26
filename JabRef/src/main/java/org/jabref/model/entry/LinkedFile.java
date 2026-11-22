@@ -124,6 +124,7 @@ public class LinkedFile implements Serializable {
         this.description.setValue(description);
     }
 
+    //returns the path to file
     public String getLink() {
         return link.get();
     }

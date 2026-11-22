@@ -2,6 +2,7 @@ package org.jabref.gui.forgesynesis;
 
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import org.jabref.gui.LibraryTabContainer;
 import org.jabref.gui.StateManager;
 import org.jabref.gui.forgesynesis.deckbrowser.DeckBrowserView;
 
@@ -12,8 +13,8 @@ public class ForgeSynesisMainContainer extends StackPane {
 
     private StateManager stateManager;
 
-    public ForgeSynesisMainContainer(StateManager stateManager){
-        forgeSynesisView = new ForgeSynesisView(stateManager, this);
+    public ForgeSynesisMainContainer(LibraryTabContainer libraryTabContainer, StateManager stateManager){
+        forgeSynesisView = new ForgeSynesisView(libraryTabContainer, stateManager, this);
         deckBrowserView = new DeckBrowserView(stateManager, this);
 
         getChildren().addAll(
@@ -22,6 +23,7 @@ public class ForgeSynesisMainContainer extends StackPane {
         );
 
         showForge();
+        forgeSynesisView.refreshLinkedFiles();
 
     }
 

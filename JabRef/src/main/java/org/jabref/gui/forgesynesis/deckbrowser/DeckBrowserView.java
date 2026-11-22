@@ -27,6 +27,7 @@ public class DeckBrowserView extends AnchorPane {
 
     @FXML
     public void openForgeWindow(){
+        System.out.println("Open Forge");
         mainContainer.showForge();
     }
 
