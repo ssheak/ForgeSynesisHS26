@@ -1,6 +1,4 @@
 package org.jabref.gui.forgesynesis;
-
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import org.jabref.gui.LibraryTabContainer;
 import org.jabref.gui.StateManager;
@@ -26,12 +24,18 @@ public class ForgeSynesisMainContainer extends StackPane {
 
     }
 
+    /**
+     * Changes the view to show generation window.
+     */
     public void showForge(){
         forgeSynesisView.setVisible(true);
         deckBrowserView.setVisible(false);
         forgeSynesisView.toFront();
     }
 
+    /**
+     * Changes the view to show deck browser.
+     */
     public void showDeck() {
         forgeSynesisView.setVisible(false);
         deckBrowserView.setVisible(true);
