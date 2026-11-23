@@ -71,7 +71,7 @@ public class SidePaneContentFactory {
                     entryTypesManager,
                     clipBoardManager,
                     undoManager).getContent();
-            case FORGE_SYNESIS -> new ForgeSynesisMainContainer(tabContainer, stateManager);
+            case FORGE_SYNESIS -> new ForgeSynesisMainContainer(tabContainer, stateManager, dialogService);
             case WEB_SEARCH -> new WebSearchPaneView(
                     preferences,
                     dialogService,

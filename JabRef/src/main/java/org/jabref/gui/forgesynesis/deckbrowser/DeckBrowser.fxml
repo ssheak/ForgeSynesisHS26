@@ -1,12 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="384.0" prefWidth="494.0" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.jabref.gui.forgesynesis.deckbrowser.DeckBrowserView">
+<fx:root prefHeight="430.0" prefWidth="520.0" type="AnchorPane"
+         xmlns="http://javafx.com/javafx/21"
+         xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="org.jabref.gui.forgesynesis.deckbrowser.DeckBrowserView">
    <children>
-      <ScrollPane layoutX="247.0" layoutY="31.0" prefHeight="323.0" prefWidth="220.0" />
-      <Button fx:id="goForgeButton" layoutX="14.0" layoutY="31.0" mnemonicParsing="false" text="Forge Cards" onAction="#openForgeWindow"/>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                  AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+         </padding>
+         <top>
+            <VBox spacing="8.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="10.0">
+                     <children>
+                        <Button onAction="#openForgeWindow" text="← Forge" />
+                        <Label text="Deck Browser" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Button onAction="#importDeck" text="Open deck…" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="searchField" promptText="Search decks by topic or source…" />
+               </children>
+            </VBox>
+         </top>
+         <center>
+            <HBox spacing="10.0">
+               <padding>
+                  <Insets bottom="8.0" top="12.0" />
+               </padding>
+               <children>
+                  <VBox spacing="6.0" prefWidth="190.0">
+                     <children>
+                        <Label text="Decks" />
+                        <ListView fx:id="deckList" VBox.vgrow="ALWAYS" />
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" />
+                  <VBox fx:id="deckDetails" spacing="8.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="deckTitleLabel" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label text="Topic" />
+                        <Label fx:id="topicLabel" wrapText="true" />
+                        <Label text="Cards" />
+                        <Label fx:id="cardCountLabel" />
+                        <Label text="Source material" />
+                        <Label fx:id="sourceLabel" wrapText="true" />
+                        <HBox spacing="6.0">
+                           <children>
+                              <Button fx:id="studyButton" onAction="#studySelectedDeck" text="Study" />
+                              <Button fx:id="removeButton" onAction="#removeDeckFromList" text="Remove" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Label fx:id="emptyStateLabel" text="Open a saved JSON deck to browse and study it."
+                         wrapText="true" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+         </center>
+         <bottom>
+            <Label fx:id="statusLabel" text="Loaded decks stay in this browser session; files are not changed."
+                   wrapText="true" />
+         </bottom>
+      </BorderPane>
    </children>
 </fx:root>
