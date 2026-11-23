@@ -27,21 +27,24 @@ public class ForgeSynesisViewModel {
     private final LibraryTabContainer libraryTabContainer;
     private ObservableList<LinkedFile> linkedFiles = FXCollections.observableArrayList();
 
-    public ForgeSynesisViewModel(LibraryTabContainer libraryTabContainer, StateManager stateManager){
+    private final ForgeSynesisView forgeSynesisView;
+
+    public ForgeSynesisViewModel(LibraryTabContainer libraryTabContainer, StateManager stateManager, ForgeSynesisView forgeSynesisView){
         this.libraryTabContainer = libraryTabContainer;
+        this.forgeSynesisView = forgeSynesisView;
         this.stateManager = stateManager;
     }
 
-    //retrieve the currently selected bibliography entry and its linked files. Update Observable list
+    //Retrieve the bibliographic entries
     public void updateLinkedFiles() {
-        System.out.println("updateLinkedFiles() called");
+        //System.out.println("updateLinkedFiles() called");
 
         linkedFiles.clear();
 
         LibraryTab currentTab = libraryTabContainer.getCurrentLibraryTab();
 
         if (currentTab == null) {
-            System.out.println("No library is currently open.");
+            //System.out.println("No library is currently open.");
             return;
         }
 
@@ -49,13 +52,13 @@ public class ForgeSynesisViewModel {
                 .getDatabase()
                 .getEntries();
 
-        System.out.println("Total entries: " + entries.size());
+        //System.out.println("Total entries: " + entries.size());
 
         for (BibEntry entry : entries) {
             linkedFiles.addAll(entry.getFiles());
         }
 
-        System.out.println("Linked files found: " + linkedFiles.size());
+        //System.out.println("Linked files found: " + linkedFiles.size());
     }
 
     public void changeLanguage(){
@@ -87,19 +90,19 @@ public class ForgeSynesisViewModel {
         //Flashcard generation logic
     }
 
-    public StringProperty getLanguage(){
+    public StringProperty getLanguageProperty(){
         return language;
     }
 
-    public IntegerProperty getQuantity(){
+    public IntegerProperty getQuantityProperty(){
         return quantity;
     }
 
-    public StringProperty getDifficulty(){
+    public StringProperty getDifficultyProperty(){
         return difficulty;
     }
 
-    public StringProperty getPrompt(){
+    public StringProperty getPromptProperty(){
         return prompt;
     }
 

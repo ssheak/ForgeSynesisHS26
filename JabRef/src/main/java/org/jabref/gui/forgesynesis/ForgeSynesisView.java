@@ -40,12 +40,19 @@ public class ForgeSynesisView extends AnchorPane {
 
     public ForgeSynesisView(LibraryTabContainer tabContainer, StateManager stateManager, ForgeSynesisMainContainer mainContainer) {
         this.stateManager = stateManager;
-        this.viewModel = new ForgeSynesisViewModel(tabContainer, stateManager);
+        this.viewModel = new ForgeSynesisViewModel(tabContainer, stateManager, this);
         this.mainContainer = mainContainer;
         this.tabContainer = tabContainer;
 
         ViewLoader.view(this).root(this).load();
 
+    }
+
+    @FXML
+    public void initialize(){
+        languageSwitch.textProperty().bind(viewModel.getLanguageProperty());
+        difficultySwitch.textProperty().bind(viewModel.getDifficultyProperty());
+        quantitySwitch.textProperty().bind(viewModel.getQuantityProperty().asString());
     }
 
     public void refreshLinkedFiles() {
@@ -105,30 +112,18 @@ public class ForgeSynesisView extends AnchorPane {
         System.out.println("Send request to Gemini API");
     }
 
+
     @FXML
     private void changeLanguage(){
         viewModel.changeLanguage();
     }
-
     @FXML
     private void changeQuantity(){
         viewModel.changeQuantity();
     }
-
     @FXML
     private void changeDifficulty(){
         viewModel.changeDifficulty();
-    }
-
-    public List<SourceDocument> getSelectedFiles() {
-
-        return previewBox.getChildren()
-                .stream()
-                .filter(node -> node instanceof CheckBox)
-                .map(node -> (CheckBox) node)
-                .filter(CheckBox::isSelected)
-                .map(checkBox -> (SourceDocument) checkBox.getUserData())
-                .toList();
     }
 
 }

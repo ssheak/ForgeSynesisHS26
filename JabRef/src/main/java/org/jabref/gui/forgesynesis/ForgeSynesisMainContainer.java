@@ -11,7 +11,6 @@ public class ForgeSynesisMainContainer extends StackPane {
     private final ForgeSynesisView forgeSynesisView;
     private final DeckBrowserView deckBrowserView;
 
-    private StateManager stateManager;
 
     public ForgeSynesisMainContainer(LibraryTabContainer libraryTabContainer, StateManager stateManager){
         forgeSynesisView = new ForgeSynesisView(libraryTabContainer, stateManager, this);
