@@ -1,7 +1,8 @@
 package org.jabref.gui.forgesynesis;
 
 import com.airhacks.afterburner.views.ViewLoader;
-import javafx.collections.ListChangeListener;
+import javafx.application.Platform;
+import com.google.common.eventbus.Subscribe;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXML;
@@ -9,7 +10,9 @@ import javafx.scene.layout.VBox;
 import org.jabref.gui.LibraryTab;
 import org.jabref.gui.LibraryTabContainer;
 import org.jabref.gui.StateManager;
-import org.jabref.model.entry.BibEntry;
+import org.jabref.model.database.event.EntriesAddedEvent;
+import org.jabref.model.database.event.EntriesRemovedEvent;
+import org.jabref.model.entry.event.EntryChangedEvent;
 
 import java.util.List;
 
@@ -46,6 +49,8 @@ public class ForgeSynesisView extends AnchorPane {
 
         ViewLoader.view(this).root(this).load();
 
+        registerDatabaseListener();
+
     }
 
     @FXML
@@ -70,6 +75,37 @@ public class ForgeSynesisView extends AnchorPane {
         });
 
         loadLinkedFiles();
+    }
+
+    private void registerDatabaseListener() {
+        LibraryTab currentTab = tabContainer.getCurrentLibraryTab();
+
+        if (currentTab == null) {
+            return;
+        }
+
+        currentTab.getBibDatabaseContext()
+                .getDatabase()
+                .registerListener(this);
+    }
+
+    @Subscribe
+    public void handleEntryAdded(EntriesAddedEvent event) {
+        refreshPreview();
+    }
+
+    @Subscribe
+    public void handleEntryChanged(EntryChangedEvent event) {
+        refreshPreview();
+    }
+
+    @Subscribe
+    public void handleEntryChanged(EntriesRemovedEvent event) {
+        refreshPreview();
+    }
+
+    private void refreshPreview() {
+        Platform.runLater(this::refreshLinkedFiles);
     }
 
     public void loadLinkedFiles() {
