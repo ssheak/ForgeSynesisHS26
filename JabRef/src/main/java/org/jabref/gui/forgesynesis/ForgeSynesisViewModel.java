@@ -1,6 +1,4 @@
 package org.jabref.gui.forgesynesis;
-
-import javafx.beans.Observable;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -35,7 +33,12 @@ public class ForgeSynesisViewModel {
         this.stateManager = stateManager;
     }
 
-    //Retrieve the bibliographic entries
+    /**
+     * Retrieves all linked files from the currently active library
+     * and updates the observable list of linked files.
+     *
+     * If no library is currently open, the list remains empty.
+     */
     public void updateLinkedFiles() {
         //System.out.println("updateLinkedFiles() called");
 
@@ -61,6 +64,9 @@ public class ForgeSynesisViewModel {
         //System.out.println("Linked files found: " + linkedFiles.size());
     }
 
+    /**
+     * Toggles the selected generation language between German and English.
+     */
     public void changeLanguage(){
         if ("Deutsch".equals(language.get())){
             language.set("English");
@@ -69,7 +75,9 @@ public class ForgeSynesisViewModel {
         }
     }
 
-    //implement with enum: Easy, Medium, Hard
+    /**
+     * Toggles the selected difficulty level between Easy and Hard.
+     */
     public void changeDifficulty(){
         if ("Easy".equals(difficulty.get())){
             difficulty.set("Hard");
@@ -78,6 +86,9 @@ public class ForgeSynesisViewModel {
         }
     }
 
+    /**
+     * Toggles the number of flashcards between 10 and 20.
+     */
     public void changeQuantity(){
         if (quantity.get() == 20){
             quantity.set(10);
@@ -86,29 +97,65 @@ public class ForgeSynesisViewModel {
         }
     }
 
+    /**
+     * Handles the flashcard generation logic using the selected
+     * language, difficulty, quantity and prompt settings.
+     */
     public void generateFlashcards(){
         //Flashcard generation logic
     }
 
+    /**
+     * Returns the property representing the currently selected generation language.
+     *
+     * @return the language property
+     */
     public StringProperty getLanguageProperty(){
         return language;
     }
 
+    /**
+     * Returns the property representing the selected number of flashcards.
+     *
+     * @return the quantity property
+     */
     public IntegerProperty getQuantityProperty(){
         return quantity;
     }
 
+    /**
+     * Returns the property representing the selected difficulty.
+     *
+     * @return the difficulty property
+     */
     public StringProperty getDifficultyProperty(){
         return difficulty;
     }
 
+    /**
+     * Returns the property containing the user's additional generation prompt.
+     *
+     * @return the prompt property
+     */
     public StringProperty getPromptProperty(){
         return prompt;
     }
 
+    /**
+     * Returns the observable list of linked files retrieved from the active library.
+     *
+     * @return the observable list of linked files
+     */
     public ObservableList<LinkedFile> getLinkedFiles(){
         return linkedFiles;
     }
+
+    /**
+     * Converts the currently retrieved linked files into SourceDocument objects
+     * for use by the Forge Synesis preview and generation components.
+     *
+     * @return a list of source documents
+     */
     public List<SourceDocument> getSourceDocuments() {
 
         return linkedFiles.stream()

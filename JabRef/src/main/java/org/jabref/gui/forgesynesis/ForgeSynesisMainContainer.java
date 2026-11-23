@@ -23,12 +23,18 @@ public class ForgeSynesisMainContainer extends StackPane {
         forgeSynesisView.refreshLinkedFiles();
     }
 
-    public void showForge() {
+    /**
+     * Changes the view to show generation window.
+     */
+    public void showForge(){
         forgeSynesisView.setVisible(true);
         deckBrowserView.setVisible(false);
         forgeSynesisView.toFront();
     }
 
+    /**
+     * Changes the view to show deck browser.
+     */
     public void showDeck() {
         forgeSynesisView.setVisible(false);
         deckBrowserView.setVisible(true);
