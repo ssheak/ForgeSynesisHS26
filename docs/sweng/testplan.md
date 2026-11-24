@@ -7,7 +7,7 @@ title : Testplan
 
 | Version | Projektname | Autor  | Status | Datum | Kommentar |
 | ------- | ----- | ------ | ------ | ----- | --------- |
-|  0.1  |  Forge Synesis  | Jasra Mohamed Yousaf, Erind Shima, Shahriar Sheak, Bavan Sivaloganathan| in Bearbeitung | 13.11.2026 | |
+|  0.1  |  Forge Synesis  | Jasra Mohamed Yoosuf, Erind Shima, Shahriar Sheak, Bavan Sivaloganathan| in Bearbeitung | 13.11.2026 | |
 
 
 # 1. Einführung
@@ -261,4 +261,12 @@ Falls Forge Synesis als Webseite und nicht direkt in JabRef getestet wird, müss
 
 *Erwartete Ausgabe:* Die fehlerhafte Antwort wird erkannt. Der API-Client gibt einen geeigneten Fehlerzustand zurück oder löst die vorgesehene Exception aus. Es werden keine ungültigen Lernkarten erzeugt.
 
+<<<<<<< HEAD
 *Abhängigkeiten:* ForgeSynesisAPIClient, Gemini API.
+=======
+*Eingabe:* Der Benutzer wählt die leere Lernkartensammlung aus.
+
+*Erwartete Ausgabe:* Das System zeigt eine entsprechende Meldung an und ermöglicht die Auswahl einer anderen Sammlung. Der bestehende Lernfortschritt bleibt unverändert.
+
+*Abhängigkeiten:* Lernmodus, Speichermechanismus, Fortschrittsverwaltung.
+>>>>>>> 113a617834b445ec75ba4e04050fa78f38010a60
