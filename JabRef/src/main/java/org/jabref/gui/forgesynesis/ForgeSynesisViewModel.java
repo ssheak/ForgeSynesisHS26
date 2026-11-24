@@ -64,6 +64,10 @@ public class ForgeSynesisViewModel {
         //System.out.println("Linked files found: " + linkedFiles.size());
     }
 
+    public void forge(){
+
+    }
+
     /**
      * Toggles the selected generation language between German and English.
      */

@@ -178,7 +178,8 @@ public class ForgeSynesisView extends AnchorPane {
      */
     @FXML
     private void forgeLearningCards(){
-        System.out.println("Send request to Gemini API");
+        System.out.println("Prepare generation request");
+        viewModel.forge();
     }
 
     /**
