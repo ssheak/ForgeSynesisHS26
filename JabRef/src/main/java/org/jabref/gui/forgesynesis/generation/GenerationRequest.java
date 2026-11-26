@@ -1,15 +1,15 @@
-package org.jabref.gui.forgesynesis;
+package org.jabref.gui.forgesynesis.generation;
+
+import org.jabref.gui.forgesynesis.SourceDocument;
 
 import java.util.List;
 
 public class GenerationRequest {
 
     private GenerationSettings generationSettings;
-    private String optionalPrompt;
     private List<SourceDocument> selectedFiles;
-    public GenerationRequest(GenerationSettings generationSettings, String optionalPrompt, List<SourceDocument> selectedFiles){
+    public GenerationRequest(GenerationSettings generationSettings, List<SourceDocument> selectedFiles){
         this.generationSettings = generationSettings;
-        this.optionalPrompt = optionalPrompt;
         this.selectedFiles = selectedFiles;
     }
 

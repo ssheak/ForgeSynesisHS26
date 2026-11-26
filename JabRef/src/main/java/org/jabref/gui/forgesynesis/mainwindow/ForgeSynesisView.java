@@ -1,4 +1,4 @@
-package org.jabref.gui.forgesynesis;
+package org.jabref.gui.forgesynesis.mainwindow;
 
 import com.airhacks.afterburner.views.ViewLoader;
 import javafx.application.Platform;
@@ -10,6 +10,9 @@ import javafx.scene.layout.VBox;
 import org.jabref.gui.LibraryTab;
 import org.jabref.gui.LibraryTabContainer;
 import org.jabref.gui.StateManager;
+import org.jabref.gui.forgesynesis.ForgeSynesisMainContainer;
+import org.jabref.gui.forgesynesis.SourceDocument;
+import org.jabref.gui.forgesynesis.api.ForgeSynesisService;
 import org.jabref.model.database.event.EntriesAddedEvent;
 import org.jabref.model.database.event.EntriesRemovedEvent;
 import org.jabref.model.entry.event.EntryChangedEvent;
@@ -41,9 +44,9 @@ public class ForgeSynesisView extends AnchorPane {
     private final LibraryTabContainer tabContainer;
 
 
-    public ForgeSynesisView(LibraryTabContainer tabContainer, StateManager stateManager, ForgeSynesisMainContainer mainContainer) {
+    public ForgeSynesisView(LibraryTabContainer tabContainer, StateManager stateManager, ForgeSynesisService forgeSynesisService, ForgeSynesisMainContainer mainContainer) {
         this.stateManager = stateManager;
-        this.viewModel = new ForgeSynesisViewModel(tabContainer, stateManager, this);
+        this.viewModel = new ForgeSynesisViewModel(tabContainer, stateManager, forgeSynesisService, this);
         this.mainContainer = mainContainer;
         this.tabContainer = tabContainer;
 
@@ -58,6 +61,7 @@ public class ForgeSynesisView extends AnchorPane {
         languageSwitch.textProperty().bind(viewModel.getLanguageProperty());
         difficultySwitch.textProperty().bind(viewModel.getDifficultyProperty());
         quantitySwitch.textProperty().bind(viewModel.getQuantityProperty().asString());
+        promptArea.textProperty().bind(viewModel.getPromptProperty());
     }
 
     /**

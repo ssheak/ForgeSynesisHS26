@@ -1,4 +1,4 @@
-package org.jabref.gui.forgesynesis;
+package org.jabref.gui.forgesynesis.mainwindow;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -8,6 +8,10 @@ import javafx.collections.ObservableList;
 import org.jabref.gui.LibraryTab;
 import org.jabref.gui.LibraryTabContainer;
 import org.jabref.gui.StateManager;
+import org.jabref.gui.forgesynesis.SourceDocument;
+import org.jabref.gui.forgesynesis.api.ForgeSynesisService;
+import org.jabref.gui.forgesynesis.generation.GenerationRequest;
+import org.jabref.gui.forgesynesis.generation.GenerationSettings;
 import org.jabref.model.entry.BibEntry;
 import org.jabref.model.entry.LinkedFile;
 
@@ -27,10 +31,14 @@ public class ForgeSynesisViewModel {
 
     private final ForgeSynesisView forgeSynesisView;
 
-    public ForgeSynesisViewModel(LibraryTabContainer libraryTabContainer, StateManager stateManager, ForgeSynesisView forgeSynesisView){
+    private final ForgeSynesisService forgeSynesisService;
+
+    public ForgeSynesisViewModel(LibraryTabContainer libraryTabContainer, StateManager stateManager, ForgeSynesisService forgeSynesisService, ForgeSynesisView forgeSynesisView){
         this.libraryTabContainer = libraryTabContainer;
         this.forgeSynesisView = forgeSynesisView;
         this.stateManager = stateManager;
+        this.forgeSynesisService = forgeSynesisService;
+
     }
 
     /**
@@ -65,6 +73,8 @@ public class ForgeSynesisViewModel {
     }
 
     public void forge(){
+
+        forgeSynesisService.createGenerationRequest(language.get(), difficulty.get(), quantity.get(), prompt.get(), getSourceDocuments());
 
     }
 
